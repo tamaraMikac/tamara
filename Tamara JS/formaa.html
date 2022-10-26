@@ -1,0 +1,113 @@
+
+<html>
+    <head>
+    <title>Student form</title>
+    <style>
+    label {
+      display:inline-block;
+      width: 150px;
+    }
+    
+    input[type=text], input[type=date], input[type=email], select {
+      width: 250px;
+      margin: 2px;
+      border: 1px solid black;
+    }
+    
+    fieldset {
+      float:left;
+      clear:left;
+    }
+    
+    input:invalid {
+      background-color: red;
+      box-shadow: none;
+    }
+    
+    input[type=button] {
+      float:left;
+      clear:left;
+      margin: 2px;
+    }
+    </style>
+    <script>
+
+        function confirmData(){
+        var forma = document.getElementById("student_form");
+        var email = document.getElementById("input_email");
+
+        var splitEmail = email.value.split("@");
+        if(splitEmail != "student.upr.si"){
+            window.alert("Wrong input!");
+            email.style.backgroundColor = "lightcoral";
+        }
+
+        let ime = document.getElementById("name");
+        if(ime.value.trim().split(" ").length < 2){
+            ime.style.backgroundColor = "lightcoral";
+        }else{
+            ime.style.backgroundColor = "";
+        }
+        forma.submit();
+    }
+
+    function levelChanged(){
+        var level = document.getElementById("select_level");
+        var program = document.getElementById("select_program");
+        while(program.length > 0)
+        program.remove(0);
+
+        if(level.value == "Undergraduate"){
+            var option = document.createElement("option");
+            option.text = "Computer Science";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text ="Mathematics";
+            program.add(option);
+        }
+
+        if(level.value == "Master's") {
+            var option = document.createElement("option");
+            option.text = "Data Science";
+            program.add(option);
+        }
+    }
+    </script>
+    </head>
+
+    <body> 
+    <form id="student_form">
+      <fieldset>
+      <div><label for="name">Name:</label><input type="text" id="name" name="name" required></div>
+      <div><label for="surname">Last name:</label><input type="text" name="surname" required></div>
+      <div><label for="birth">Birth date:</label><input type="date" name="birth"></div>
+      <div><label for="phone">Phone:</label><input type="text" name="phone" pattern="0[3-7][0-9]\s[0-9]{6}"></div>
+      <div><label for="email">Email:</label><input type="email" name="email" id="input_email"></div>
+    </fieldset>
+    
+    <fieldset>
+    <div>
+    <label>Study level:</label>
+    <select onchange="levelChanged()" id="select_level">
+      <option>Undergraduate</option>
+      <option>Master's</option>
+      <option>Doctoral</option>
+    </select>
+    </div>
+    
+    <div>
+    <label>Study program:</label>
+    <select id="select_program">
+    </select>
+    </fieldset>
+    </div>
+    
+    <input type="button" value="Confirm data" onclick="confirmData()">
+    </form>
+    
+    <script>
+    levelChanged();
+    </script>
+    
+    </body>
+    </html>

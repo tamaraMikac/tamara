@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Midterm Q2</title>
+    <style>
+      .bar {
+        display: inline-block;
+        font-size: 30px;
+        color: black;
+      }
+
+      .container {
+        padding: 20px;
+        width: 450px;
+        text-align: center;
+    
+      }
+      button {
+        width: 80px;
+        height: 50px;
+        color: white;
+        background-color: black;
+        font-size: 20px;
+        border-radius: 10px;
+      }
+
+      #slider {
+          width: 450px;
+          height: 10px;
+          background-color: black;
+          margin-top: 10px;
+          border-radius: 10px;
+      }
+      #ball {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        background-color: red; 
+        border-radius: 50%;    
+        left: 0px;
+        top: -10px;
+      }
+    </style>
+    <script>
+    let counter = 0;
+    let interval = undefined;
+    let id = undefined;
+
+    function increaseTimer(){
+        counter += 10;
+        document.getElementById("timer").innerHTML = "0." + counter;
+    }
+
+    function myMove(){
+        document.getElementById("play").style.display = "none";
+        document.getElementById("replay").style.display = "none";
+        let ball = document.getElementById("ball");
+        clearInterval(id);
+        let position = 0;
+        id = setInterval(frame,21);
+        function frame(){
+            if(position == 425){
+                clearInterval(id);
+                clearInterval(interval);
+                counter = 0;
+                document.getElementById("replay").style.display = "initial";
+            } else {
+                position++;
+                bal.style.left = position + "px";
+             }
+        }
+        interval = setInterval(increaseTimer,100);
+    }
+
+    function stopT(){
+        clearInterval(interval);
+        clearInterval(id);
+        interval = undefined;
+        id = undefined;
+        document.getElementById("play").style.display = "initial";
+
+    }
+
+
+    function replayT(){
+        counter = 0;
+        ball.style.left = "0px";
+        ball.style.top = "-10px";
+        document.getElementById("timer").innerHTML = "0.00";
+        myMove();
+    }
+    </script>
+  </head>
+  
+  <body>
+  
+    <div class="container">
+      <h1>Music Player</h1>
+    </div>
+
+    <div class="bar" id="timer">0.00</div>
+    <div class="bar" id="slider">
+      <div id="ball" onclick="stopT()"></div>
+    </div>
+    <div class="bar">0.90</div>
+
+    <div class="container">
+      <button onclick="myMove()">Play</button>
+      <button onclick="replayT()" id="replay" style="display: none;">Replay</button>
+    </div>
+
+</body>
+</html>
+    

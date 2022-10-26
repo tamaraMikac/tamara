@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo"> </p>
+<script>
+function myFunction(string) {
+var chaar = string.split("");
+var result = [];
+
+for(var i = 0; i < chaar.length; i++) {
+if(string.indexOf(chaar[i]) === string.lastIndexOf(chaar[i]))
+result.push(chaar[i]);
+}
+return result.join("");
+}
+
+
+
+document.getElementById("demo").innerHTML = myFunction("Tamara");
+</script>
+</body>
+</html>

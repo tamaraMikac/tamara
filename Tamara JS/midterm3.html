@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Midterm Q1</title>
+	<style type="text/css">
+		.button {
+			display: inline-block;
+			width: 100px;
+			height: 30px;
+			background-color: black;
+			color: white;
+			border: 1px solid white;
+			text-align: center;
+			margin: 1px;
+			font-size: 10px;
+		}
+
+		.output{
+			width: 150px;
+			height: 30px;
+			border: 1px solid black;
+			font-size: 20px;
+			text-align: center;
+		}
+		div{
+			padding: 10px;
+		}
+	</style>
+    <script>
+
+        let sum = 0;
+        
+        function printNums(){
+            let max = document.getElementById("max").value;
+            var ul = document.getElementById("list");
+            let output = document.getElementsByClassName("output");
+
+
+            for(let i=0; i <= max; i++){
+                var li = document.createElement("li");
+           if(i % 2 == 0){
+                li.innerText = i + ": Even";
+                li.style.backgroundColor = "whitE";
+            }else{
+                 li.innerText= i + ": Odd";
+                li.style.backgroundColor = "orange";
+                sum += i;
+               
+            }
+            ul.appendChild(li);
+
+}
+document.getElementById("o").innerHTML = sum;
+        }
+
+     function remove(){
+        let ul = document.getElementById("list");
+        ul.innerHTML = "";
+        document.getElementById("o").innerHTML = "0";
+     }
+
+    
+    </script>
+</head>
+<body>
+	<div>
+		<label for="name">Enter Max No:</label>
+		<input type="text" id="max">
+		<ul id="list"> 
+		</ul>
+	</div>
+
+	<button class="button" id="print" onclick="printNums()">Print</button>
+	<button class="button" id="remove" onclick="remove()">Remove</button>
+	
+	<div>
+		<label for="displayoddsum">Odd Sum:</label>
+		<div class="output" id="o"></div>
+	</div>
+
+</body>
+</html>

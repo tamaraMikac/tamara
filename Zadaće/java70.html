@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        form{
+            width: 350px;
+            height: 110px;
+        }
+    </style>
+    <script>
+        function DivideBy(){
+            let num1 = document.getElementById("firstn").value;
+            let num2 = document.getElementById("secondn").value;
+            let result = document.getElementById("result");
+            result.innerHTML = num1 / num2;
+        }
+
+        function MultuplyBy(){
+            let num1 = document.getElementById("firstn").value;
+            let num2 = document.getElementById("secondn").value;
+            let result = document.getElementById("result");
+            result.innerHTML = num1 * num2;
+        }
+    </script>
+</head>
+<html>
+    <body>
+        <form>
+            <fieldset>
+                <label> First number:</label>
+                <input type="text" id="firstn"><br>
+                <label>Second number</label>
+                <input type="text" id="secondn"><br>
+                <label> Result</label>
+                <div id="result"></div>
+            </fieldset>
+        </form>
+        <button onclick="DivideBy()">Divide</button>
+        <button onclick="MultuplyBy()">Multuply</button>
+    </body>
+</html>

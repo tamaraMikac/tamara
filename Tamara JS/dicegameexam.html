@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <style>
+    table{
+        border: 2px solid black;
+        border-radius: 5px;
+    }
+
+    td{
+        width: 20px;
+        height: 20px;
+        background-color: black;
+        border-radius: 50%;
+    }
+   </style>
+   <script>
+    function clearDots(){
+        document.getElementById("dot1").style.backgroundColor = "white";
+        document.getElementById("dot2").style.backgroundColor = "white";
+        document.getElementById("dot3").style.backgroundColor = "white";
+        document.getElementById("dot4").style.backgroundColor = "white";
+        document.getElementById("dot5").style.backgroundColor = "white";
+        document.getElementById("dot6").style.backgroundColor = "white";
+        document.getElementById("dot7").style.backgroundColor = "white";
+        document.getElementById("dot8").style.backgroundColor = "white";
+        document.getElementById("dot9").style.backgroundColor = "white";
+       }
+        
+        function showDots(number){
+           
+            if(number == 1){
+                document.getElementById("dot5").style.backgroundColor = "black";
+            }
+            if(number == 2){
+                document.getElementById("dot3").style.backgroundColor = "black";
+                document.getElementById("dot7").style.backgroundColor = "black";
+            }
+            if(number == 3){
+                document.getElementById("dot3").style.backgroundColor = "black";
+                document.getElementById("dot5").style.backgroundColor = "black";
+                document.getElementById("dot7").style.backgroundColor = "black";
+                
+            }
+            if(number == 4){
+                document.getElementById("dot1").style.backgroundColor = "black";
+                document.getElementById("dot3").style.backgroundColor = "black";
+                document.getElementById("dot7").style.backgroundColor = "black";
+                document.getElementById("dot9").style.backgroundColor = "black";
+            }
+
+            if(number == 5){
+                document.getElementById("dot1").style.backgroundColor = "black";
+                document.getElementById("dot3").style.backgroundColor = "black";
+                document.getElementById("dot7").style.backgroundColor = "black";
+                document.getElementById("dot9").style.backgroundColor = "black";
+                document.getElementById("dot5").style.backgroundColor = "black";
+            }
+            if(number == 6){
+                document.getElementById("dot1").style.backgroundColor = "black";
+                document.getElementById("dot2").style.backgroundColor = "black";
+                document.getElementById("dot3").style.backgroundColor = "black";
+                document.getElementById("dot7").style.backgroundColor = "black";
+                document.getElementById("dot8").style.backgroundColor = "black";
+                document.getElementById("dot9").style.backgroundColor = "black";
+               }
+
+    }
+    function randomNum(){
+        var randomNum = Math.floor(Math.random() * 6)+1;
+        var table = document.querySelector("table");
+        if(randomNum == 1){
+                document.getElementById("dot5").style.backgroundColor = "black";
+            }
+            if(randomNum == 2){
+                document.getElementById("dot3").style.backgroundColor = "black";
+                document.getElementById("dot7").style.backgroundColor = "black";
+            }
+            if(randomNum == 3){
+                document.getElementById("dot3").style.backgroundColor = "black";
+                document.getElementById("dot5").style.backgroundColor = "black";
+                document.getElementById("dot7").style.backgroundColor = "black";
+                
+            }
+            if(randomNum == 4){
+                document.getElementById("dot1").style.backgroundColor = "black";
+                document.getElementById("dot3").style.backgroundColor = "black";
+                document.getElementById("dot7").style.backgroundColor = "black";
+                document.getElementById("dot9").style.backgroundColor = "black";
+            }
+
+            if(randomNum == 5){
+                document.getElementById("dot1").style.backgroundColor = "black";
+                document.getElementById("dot3").style.backgroundColor = "black";
+                document.getElementById("dot7").style.backgroundColor = "black";
+                document.getElementById("dot9").style.backgroundColor = "black";
+                document.getElementById("dot5").style.backgroundColor = "black";
+            }
+            if(randomNum == 6){
+                document.getElementById("dot1").style.backgroundColor = "black";
+                document.getElementById("dot2").style.backgroundColor = "black";
+                document.getElementById("dot3").style.backgroundColor = "black";
+                document.getElementById("dot7").style.backgroundColor = "black";
+                document.getElementById("dot8").style.backgroundColor = "black";
+                document.getElementById("dot9").style.backgroundColor = "black";
+               } 
+               randomNum = setInterval(randomNum,300);
+               randomNum = setInterval(clearDots,400);
+       }
+    
+       
+       
+   function rollDice(){
+    let roll = setInterval(randomNum,100);
+    roll = setInterval(clearDots, 110);
+    setTimeout(function() { clearInterval(roll); }, 3000);
+
+   }
+   
+  
+   
+
+
+        
+    
+   </script>
+
+</head>
+<body>
+    <table onclick="randomNum()">
+        <tr><td id="dot1" ></td><td id="dot2"></td><td id="dot3"></td></tr>
+        <tr><td id="dot4"></td><td id="dot5"></td><td id="dot6"></td></tr>
+        <tr><td id="dot7"></td><td id="dot8"></td><td id="dot9"></td></tr>
+    </table>
+    <br>
+    <button type="button" onclick="clearDots()">Clear Dots</button>
+    <button type="button" onclick="showDots(1)">Show Dots</button>
+    <button type="button" onclick="rollDice()">Roll dice</button>
+</body>
+</html>

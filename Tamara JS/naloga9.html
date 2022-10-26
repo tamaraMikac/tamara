@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function addIn(){
+            var vnos = document.getElementById("i");
+            var error = false;
+            if(vnos.value.trim().split(" ").length < 2){
+                vnos.style.backgroundColor = "red";
+                    error = false;
+            } else {
+                vnos.style.backgroundColor = "";
+                error = true;
+            }
+        }
+
+        var select = document.getElementById("status");
+        var reg = /[A-Z]/g;
+       
+        let ime = vnos.value.trim().split(" ")[0];
+        let priimek = vnos.value.trim().split(" ")[1];
+
+        if(/[A-Z]/.test(ime[0]) && /[A-Z]/.test(priimek[0])){
+            let option = document.createElement("option");
+            option.innerText = vnos;
+            select.add(option);
+        } else {
+            vnos.style.backgroundColor = "red";
+            error = false;
+        }
+
+    function pocisti(){
+       document.getElementById("i").value = ""; 
+       
+    }
+
+    </script>
+</head>
+<body>
+    <select id="status">
+
+    </select>
+    <input type="text" id="i">
+    <button onclick="addIn()">Add</button>
+    <button onclick="pocisti()">Clear</button>
+</body>
+</html>

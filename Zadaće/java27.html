@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo"> </p>
+<script>
+function myFunction(n) {
+if(n == 1) {
+return "Not a prime number";
+}else if(n == 2) {
+return "Prime number";
+} else {
+for(var i = 2; i < n; i++){
+if(n % i == 0) {
+return "Not a prime number";
+}
+} 
+return "Prime number";
+}
+}
+document.getElementById("demo").innerHTML = myFunction("2");
+</script>
+</body>
+</html>

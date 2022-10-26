@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+}
+
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  font-family: Raleway;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+h1 {
+  text-align: center;  
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button {
+  background-color: #04AA6D;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #04AA6D;
+}
+</style>
+<body>
+<form id="regForm" action="/action_page.php">
+    <h1>Registers:</h1>
+    <div class="tab">Name:
+        <p><input placeholder="First name..." name="fname"></p>
+        <p><input placeholder="Last name..." name="lname"></p>
+    </div>
+    <div class="tab">Contact info:
+        <p><input placeholder="E-mail..." name="email"></p>
+        <p><input placeholder="Phone..." name="phone"></p>
+    </div>
+    <div class="tab">:Birthday:
+        <p><input placeholder="dd..." name="dd"></p>
+        <p><input placeholder="mm..." name="nn"></p>
+        <p><input placeholder="yyyy..." name="yy"></p>
+    </div>
+    <div class="tab">Login info:
+        <p><input placeholder="Username..." name="uname"></p>
+        <p><input type="password" placeholder="Password..." name="psw"></p>
+    </div>
+    <div style="overflow:auto;">
+    <div style="float: right;">
+    <button type="button" id="prevBtn">Previous</button>
+    <button type="button" id="nextBtn">Next</button>
+    </div>
+    </div>
+
+</form>
+<script>
+    var currentTab = 0;
+    showTab(currentTab);
+
+    function showTab(n){
+        var x = document.getElementsByClassName("tab");
+        x[n].style.display = "block";
+        if(n == 0){
+            
+        }
+
+
+    }
+</script>
+    </body>
+    </html>

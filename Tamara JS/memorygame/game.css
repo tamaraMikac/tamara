@@ -1,0 +1,52 @@
+h1 {
+	font-family: 'Fredoka One', cursive;
+	text-align: center; 
+	color: white;
+	font-size: 80px;
+	text-shadow: rgba(0, 0, 0, 1) 7px 7px 7px;
+	
+}
+h2 {
+	font-family: 'Fredoka One', cursive;
+	text-align: center; 
+	color: white;
+	font-size: 17px;
+	display: block;
+	margin-top: -65px;
+	text-shadow: rgba(0, 0, 0, 1) 4px 4px 4px;
+}
+
+
+
+body {
+	background-color: #002E5C;
+	padding: 75px;
+	
+}
+
+.button1 {
+	font-family: 'Fredoka One', cursive;
+	width:20%;
+	color:white;
+	background-color: #336491;
+    border: 2px solid black;
+    border-radius: 15px;
+	height:35px;
+	box-shadow: rgba(0, 0, 0, 0.3) 3px 3px 3px;
+    display: block;
+	
+}
+.button1:hover {
+  background-color: #008CBA;
+  color: white;
+}
+.button1:active{
+	color:red;
+}
+
+
+div.p {
+	background-image: url("p.gif");
+	margin: center;
+	
+}

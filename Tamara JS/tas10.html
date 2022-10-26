@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication table</title>
+   1 <style>
+        button{
+            width:60px;
+            height:23px;
+            margin-top: 10px;
+        }
+        table, td, th {
+            border: 1px solid;
+        }
+
+        table {
+            margin-left:20px;
+            margin-top:20px;
+            border-collapse: collapse;
+        }
+        td{
+            width:20px;
+            height:20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Multi plication table</h1>
+    <label>Col</label><input type="text" id="col">    <label>Row</label><input type="text" id="row"> <button id="create">Create</button>
+    <button id="btn" onclick="buildTable()">Create</button>
+    <table id="tab"></table>
+
+</body>
+</html>

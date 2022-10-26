@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Naloga 2</title>
+        <style>
+            table {
+                border-collapse: collapse;
+            }
+            td {
+                width: 40px;
+                height: 40px;
+                border: 1px solid black;
+                text-align: center;
+                background-color: yellow;
+            }
+            .k1 {
+                width: 40px;
+                height: 40px;
+                border: 1px solid black;
+                text-align: center;
+                background-color: yellow;
+            }
+            .k2 {
+                width: 40px;
+                height: 40px;
+                border: 1px solid black;
+                text-align: center;
+                background-color: yellow;
+            }
+            .k1:hover{
+                background-color: red;
+            }
+            .k2:hover{
+                background-color: green;
+            }
+        </style>
+        <script>
+            let sum = 0;
+            var select = document.getElementById("select");
+                 
+            function cellClicked(cell) {
+                if (cell.style.backgroundColor ==  "yellow" ) {
+                    cell.style.backgroundColor = "gray";
+                    sum += Number.parseInt(cell.innerHTML);
+                    var option = document.createElement("option");
+                   option.text = Number.parseInt(cell.innerHTML);
+                   select.appendChild(option);
+
+                    
+                }
+                else {
+                    cell.style.backgroundColor ="gray";
+                    sum -= Number.parseInt(cell.innerHTML);
+                   
+                    
+                }
+                
+                document.getElementById("sum").innerHTML = `Sum: ${sum}`;
+            }
+
+            function slecorNot(cell){
+                let table = document.getElementById("tabe").value;
+                let selec = document.getElementById("select");
+
+                while(selec.length > 0)
+                selec.remove(0);
+
+                for(let i = 0; i < table.length; i++){
+                 if(cell.style.backgroundColor == "gray"){
+                    var option = document.createElement("option");
+                    option.text = Number.parseInt(cell.innerHTML); 
+                    selec.appendChild(option);
+
+                 }
+                }
+            }
+            
+
+           
+
+        </script>
+    </head>
+    <body>
+        <script>
+            document.write(`<table id="table" onclick="selecorNot(this)">`);
+            for (let row = 0; row < 10; row++) {
+                document.write("<tr>");
+                for (let col = 1; col <= 10; col++) {
+                    let number = row*10+col;
+                document.write(`<td onclick="cellClicked(this)" >${number}</td>`);
+               }
+                document.write("</tr>");
+            }
+            document.write(`<tr><td colspan="10" style="background-color:yellow" id="sum">Sum: 0</td></tr>`);
+            document.write("</table>");
+        </script>
+
+        <select id="select" onchange="selecorNot(this)">
+            <option></option>
+        </select>
+
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#myd, #myr {
+background-color: coral;
+padding:50px;
+}
+#mys, #myt {
+background-color: white;
+font-size: 20px;
+border: 1px solid;
+padding:20px;
+}
+</style>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+</head>
+
+<body>
+<div id="myd">
+<h2> Bubbling : </h2>
+<p id="mys"> Click me! </p>
+</div> <br>
+
+<div id="myr">
+<h2> Capturing : </h2>
+<p id="myt"> Click me! </p>
+</div> <br>
+<script>
+document.getElementById("myd").addEventListener("click", function() {
+alert("You clicked the orange element!");
+}, false);
+
+document.getElementById("myr").addEventListener("click", function() {
+alert("You clicked the orange element!");
+},true);
+
+document.getElementById("mys").addEventListener("click", function() {
+alert("You clicked the white element!");
+}, false);
+
+document.getElementById("myt").addEventListener("click", function() {
+alert("You clicked the white element!");
+},true);
+</script>
+ <br>
+ 
+</body>
+</html>

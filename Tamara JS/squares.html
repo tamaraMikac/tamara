@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            display: inline-block;
+            margin: 5px;
+        }
+        #green{
+         width: 100px;
+         height: 100px;
+         background-color: green;
+        }
+
+        #red{
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        }
+
+        #blue{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+        #output{
+            display: block;
+            text-align: center;
+        }
+        table, td {
+            border-collapse: collapse;
+            border: 1px solid black;
+            width: 200px;
+            text-align: center;
+            margin: 5px;
+        }
+       
+    </style>
+    <script>
+        function mOver(color){
+
+            document.getElementById("output").style.backgroundColor = color;
+            document.getElementById("output").innerHTML = color;
+            document.getElementById("output").style.color = "white";
+
+        }
+      counter = 0;
+        function table(color) {
+            var table = document.getElementById("colors");
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(-1);
+            var cell2 = row.insertCell(-1);
+            cell1.innerHTML = ++counter;
+            cell2.innerHTML = color;
+            cell2.style.backgroundColor = color;
+        }
+
+    function cleaar(){
+        let table = document.getElementById("colors");
+       
+
+        while(table.rows.length > 0)
+        table.deleteRow(1);
+    }
+    </script>
+     
+</head>
+<body>
+    <div id="green" onmouseover="mOver('green')" onmouseout="mOver('')" onclick="table('green')"></div>
+    <div id="red" onmouseover="mOver('red')" onmouseout="mOver('')" onclick="table('red')"></div>
+    <div id="blue" onmouseover="mOver('blue')" onmouseout="mOver('')" onclick="table('blue')"></div>
+
+    <div id="output"style="border: 1px solid black; width: 100px; height: 20px;"></div>
+    <br>
+    <table id="colors">
+        <tr>
+            <th>#</th>
+            <th>Color</th>
+        </tr>
+    </table>
+    <br>
+    <button onclick="cleaar()">Clear</button>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        button {
+            width: 200px;
+            height:40px;
+            border: 1px solid black;
+            background-color: white;
+        }
+    </style>
+</head>
+<body style="background-color: red ;">
+    <button type="button" id="dugme" onclick="changeBackground()">Click </button>
+    <button type="button" id="dugmic" onclick="changeButton()">Click me</button>
+<br>
+<br>
+<br>
+    <p id="text">Tamara je najpametnija</p> 
+    <button id="button1" onclick="changeTextColor()">Click me</button>
+<script>
+    function changeBackground(){
+       
+        const button = document.getElementById("dugme");
+        const bodi = document.getElementsByTagName("body");
+        button.addEventListener("click", function onClick(event) {
+       document.body.style.backgroundColor = "green";
+            
+        });
+    }
+
+    function changeButton(){
+    const button1 = document.getElementById("dugmic");
+    button1.addEventListener("click", function(event){
+    event.target.style.backgroundColor = "salmon";
+    });
+    }
+
+    function changeTextColor() {
+        const button2 = document.getElementById("button1");
+        const text1 = document.getElementById("text");
+
+        button2.addEventListener("click", function(event){
+            text.style.backgroundColor = "lightcoral";
+        })
+
+    }
+</script>
+</body>
+</html>

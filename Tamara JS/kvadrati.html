@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>Kvadrati</title>
+    <style>
+    div {
+      float:left;
+      width: 200px;
+      height: 200px;
+      background-color: yellow;
+      margin: 10px;
+    }
+    table {
+      clear: left;
+      margin: 10px;
+      border-collapse: collapse;
+    }
+    td {
+      width: 100px;
+      border: solid 1px black;
+      text-align: center;
+    }
+    button {
+      float: left;
+      clear: left;
+      margin: 10px;
+    }
+    </style>
+    <script>
+        counter = 0;
+        function dogodek(which, what){
+   var table = document.getElementById("dogodki");
+   var row = table.insertRow(-1);
+   var cell1 = row.insertCell(-1);
+   var cell2 = row.insertCell(-1);
+   var cell3 = row.insertCell(-1);
+   cell1.innerHTML = ++counter;
+   cell2.innerHTML = which;
+   cell3.innerHTML = what;
+        }
+
+        function pocisti(){
+            var table = document.getElementById("dogodki");
+
+            while(table.rows.length > 1)
+            table.deleteRow(1);
+        
+        counter = 0;
+    }
+    </script>
+    </head>
+    <body>
+       
+            <div onmouseover="dogodek('prvi', 'over')" onmouseout="dogodek('prvi', 'out')"></div>
+            <div onmouseover="dogodek('drugi', 'over')" onmouseout="dogodek('drugi', 'out')"></div>
+            <div onmouseover="dogodek('treci', 'over')" onmouseout="dogodek('treci', 'out')"></div>
+            <br>
+            <button onclick="pocisti()">Počisti</button>
+            <table id='dogodki'>
+          <tr>
+            <td>#</td>
+            <td>Kvadrat</td>
+            <td>Dogodek</td>
+          </tr>
+        </table>
+      </body>
+    </html>

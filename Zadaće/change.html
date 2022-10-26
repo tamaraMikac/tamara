@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2> What can JavaScript do? </h2>
+<p id="demo"> JavaScript can change HTML content. </p>
+<button type ="button" onclick='document.getElementById("demo").innerHTML="Hello JavaScript!"' > Click me </button>
+<br>
+
+<p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
+<button onclick="document.getElementById('myImage').src='pic_bulbon.gif'"> Turn on the light</button>
+<img id="myImage" src="pic_bulboff.gif" style="width:100px">
+<button onclick="document.getElementById('myImage').src='pic_bulboff.gif'"> Turn off the light </button>
+<br>
+<p id="demo1"> JavaScriptcan hide HTML elements. </p>
+<br>
+<button type="button" onclick="document.getElementById('demo1').style.display='none'"> Click me! </button>
+<br>
+<p> JavaScript can show hidden HTML elements </p>
+<p id="demo2" style="display:none"> Hello JavaScript! </p>
+<button type="button" onclick="document.getElementById('demo2').style.display='block'"> Click me </button>
+<br>
+<p>Never call document.write after the document has finished loading.
+It will overwrite the whole document.</p>
+<script>
+document.write(5+6);
+</script>
+<br>
+<script>
+window.alert(5+7);
+</script>
+<br>
+<p> Click the button print to print the current page. </p>
+<button onclick="window.print()"> Print this page </button>
+<br>
+<p id="t"> </p>
+<script>
+let x,y,z;
+x=7;
+y=15;
+z=x+y;
+document.getElementById("t").innerHTML="The value of z is "+z+".";
+</script>
+<br>
+<button type="button" onclick="myFunction()"> Click me </button>
+<p id="w"> </p>
+<p id="o"> </p>
+<script>
+function myFunction() {
+document.getElementById("w").innerHTML = "Hello Tamara!";
+document.getElementById("o").innerHTML = "How are you?";
+}
+</script>
+<br>
+<p id="l"></p>
+<script>
+const price1 = 5;
+const price2 = 10;
+let total = price1 + price2;
+document.getElementById("l").innerHTML=
+"The total is: " + total;
+</script>
+<br>
+<p id="e"></p>
+<script>
+const cars = ["BMW", "Volvo", "Golf"];
+cars[2] = "Toyota";
+cars.push("Audi");
+document.getElementById("e").innerHTML= cars;
+</script>
+<br>
+<button onclick="document.getElementById('d').innerHTML=Date()"> The time is? </button>
+<p id="d"> </p>
+<br>
+<p id="f"> </p>
+<script>
+let string = "Apple, Banana, Kiwi";
+document.getElementById("f").innerHTML=string.slice(7,13);
+</script>
+<br>
+<button onclick="myFunction()"> Try it </button>
+<p id="g"> Please visit Microsoft! </p>
+<script>
+function myFunction() {
+let text = document.getElementById("g").innerHTML;
+document.getElementById("g").innerHTML =
+ text.replace("Microsoft","W3Schools");
+}
+</script>
+
+</body>
+</html>

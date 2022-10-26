@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function potrdiObrazec(){
+                let ime = document.getElementById("ime");
+                if(ime.value.trim().split(" ").length < 2){
+                    ime.style.backgroundColor = "lightcoral";
+                    return false;
+                }else{
+                    ime.style.backgroundColor = "";
+                }
+            let email = document.getElementById("email");
+            if(email.value.trim().split("@")[1] !== "student.upr.si"){
+                email.style.backgroundColor = "lightcoral";
+                return false;
+            }else{
+                email.style.backgroundColor="";
+            }
+            let obrazec = document.getElementById("obrazec");
+            obrazec.submit();
+
+            }
+
+            let dodiplomskiProgrami = [
+            "Matematika",
+                "Računalništvo in informatika",
+                "Bioinformatika"
+            ];
+            function zbrisiIzbire(select){
+                while(select.length > 0){
+                    select.remove(0);
+                }
+            }
+
+            function dodajIzbire(select, izbire){
+                for(let i = 0; i < izbire.length; i++){
+                    let option = document.createElement("option");
+                    option.text = izbire[i];
+                    select.appendChild(option);
+                }
+            }
+
+            function izbiraPrograma(){
+                let stopnja = document.getElementById("stopnja");
+                let program = document.getElementById("program");
+                zbrisiIzbire(program);
+
+                switch(stopnja.value){
+                    case "Dodiplomski študij":
+                        dodajIzbire(program, dodiplomskiProgrami);
+                        break;
+                    case "Magistrski študij":
+                        break;
+                    case "Doktorski študij":
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            
+        </script>
+    </head>
+    <body>
+        <form id="obrazec">
+            <fieldset>
+                <div> 
+                <label> Ime študenta:</label>
+                <input type="text" placeholder="ime in priimek" id="ime">
+          </div>
+          <div>
+            <label>Datum rojstva:</label>
+            <input type="date">
+          </div>
+          <div>
+            <label> Elektronska pošta:</label>
+            <input type="email" placeholder="vpisna@student.upr.si" required id="email">
+          </div>
+          <div>
+            <label>Telefonska št.:</label>
+            <input type="tel" placeholder="000-000-000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}">
+          </div>
+
+            </fieldset>
+
+            <fieldset>
+                <div>
+                    <label>Stopnja študija:</label>
+                    <select onchange="izbiraPrograma()" id="stopnja">
+                    <option>Dodiplomski študij</option>
+                    <option>Magistrski študij</option>
+                    <option>Doktorski študij</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Študijski program</label>
+                    <select id="program">
+
+                    </select>
+                </div>
+            </fieldset>
+            <input type="button" value="Potrdi" onclick="potrdiObrazec()">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Display</title>
+<script>
+  function printLetterByLetter(destination, message, speed){
+    var i = 0;
+    var interval = setInterval(function(){
+        document.getElementById(destination).innerHTML += message.charAt(i);
+        i++;
+        if (i == message.length && speed == 200 ){
+            clearInterval(interval);
+            document.getElementById("display").style.display = "none";
+        }
+    
+    }, speed);
+  }
+   
+
+
+
+
+</script>
+</head>
+<body onload="printLetterByLetter('display', 'I Love FAMNIT', 200);">
+<div id="display"></div>
+</body>
+</html>

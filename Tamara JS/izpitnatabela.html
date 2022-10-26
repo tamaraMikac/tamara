@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+
+        }
+
+        td,tr{
+            width: 40px;
+            height: 40px;
+            background-color: yellow;
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        let sum = 0;
+        
+        function cellClicked(cell){
+            cell.addEventListener("click", function(){
+               if(cell.style.backgroundColor == "grey"){
+                cell.style.backgroundColor = "yellow";
+               }
+                sum -= Number.parseInt(cell.innerHTML);
+            })
+
+            cell.addEventListener("dblclick", function(){
+               if(cell.style.backgroundColor == "yellow"){
+                cell.style.backgroundColor = "grey";
+                sum += Number.parseInt(cell.innerHTML);
+                }
+            })
+
+            document.getElementById("sum").innerHTML = `Sum: ${sum}`;
+        }
+       
+
+        
+    </script>
+
+</head>
+<body>
+    <script>
+        
+
+        
+        document.write("<table>");
+            for(let i = 0; i < 10; i++){
+                document.write("<tr>");
+                    for(let j = 1; j <= 10; j++){
+                        let number = Math.floor(Math.random() * 99);
+                        document.write(`<td class="cel" onclick="cellClicked(this)"> ${number}</td>`);
+                    }
+                    document.write("</tr>");
+                }
+            document.write(`<tr><td colspan="10" id="sum"> Sum: 0</td></tr>`);
+                
+                document.write("</table>");
+    </script>
+</body>
+</html>

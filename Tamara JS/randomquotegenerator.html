@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    background-color: #333232;
+}
+
+#container {
+    background-color: #0E2431;
+    border: 5px solid #F5E4C3;
+    height: 275px;
+    width: 750px;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+#btn {
+    margin: 50px auto;
+    height: 50px;
+    width: 250px;
+    font-size: 22px;
+    background-color: rgb(192, 191, 191);
+
+}
+
+#output {
+    margin: 25px auto;
+    font-size: 26px;
+    color: white;
+}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <button id="btn">Press for a new quote</button>
+        <div id="output">Press the button to generate a Quote</div>
+    </div>
+
+    <script>
+        let button = document.getElementById("btn");
+        let output = document.getElementById("output");
+        let quote = ['"Keep smiling, because life is a beautiful thing and there\'s so much to smile about." -Marilyn Monroe',
+                     '"Life is a long lesson in humility." -James M. Barrie',
+                     '"In three words I can sum up everything I\'ve learned about life: it goes on." -Robert Frost',
+                     '"Love the life you live. Live the life you love." -Bob Marley',
+                     '"Life is either a daring adventure or nothing at all." -Helen Keller',
+                     '"You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose." -Dr. Seuss',
+                     ' "Life is made of ever so many partings welded together." -Charles Dickens',
+                     'You will face many defeats in life, but never let yourself be defeated. -Maya Angelou',
+                     'The greatest glory in living lies not in never falling, but in rising every time we fall. -Nelson Mandela',
+                     'In the end, it\'s not the years in your life that count. It\'s the life in your years. -Abraham Lincoln',
+                     'Never let the fear of striking out keep you from playing the game. -Babe Ruth',
+                     'You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose. -Dr. Seuss',
+                     'If life were predictable it would cease to be life and be without flavor." -Eleanor Roosevelt',
+                     ' "Life is a succession of lessons which must be lived to be understood." -Ralph Waldo Emerson',
+                     'Success is not final; failure is not fatal: It is the courage to continue that counts. -Winston S. Churchill',
+                     'The way to get started is to quit talking and begin doing. -Walt Disney',
+                     'If you really look closely, most overnight successes took a long time. -Steve Jobs',
+                     '"I find that the harder I work, the more luck I seem to have." -Thomas Jefferson',
+                     'I alone cannot change the world, but I can cast a stone across the water to create many ripples. -Mother Teresa',
+                     'The only person you are destined to become is the person you decide to be. -Ralph Waldo Emerson',
+                     ' "Dream big and dare to fail." -Norman Vaughan',
+                     'When everything seems to be going against you, remember that the airplane takes off against the wind, not with it." -Henry Ford'];
+    button.addEventListener("click", function(){
+        var randomQuote = quote[Math.floor(Math.random() * quote.length)];
+       output.innerHTML = randomQuote;
+    
+    })
+    </script>
+
+</body>
+</html>

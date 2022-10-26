@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>PR 2 Numbered squares </title>
+<style>
+.square {
+display: inline-block;
+width: 50px;
+height:50px;
+background-color: yellow;
+border: 1px solid black;
+text-align: center;
+line-height: 50px;
+font-size: 30px;
+margin: 1px;
+}
+.square:hover{
+background-color: orange;
+}
+#output {
+width: 100px;
+height:30px;
+border: 1px solid black;
+margin-top: 5px;
+margin-bottom: 5px;
+font-size: 20px;
+text-align:center;
+}
+</style>
+<script>
+let squareCount = 0;
+function printNumber(number) {
+let htmlOutput = document.getElementById("output");
+htmlOutput.innerHTML = number;
+}
+
+function addsquare(){
+let newSquare = document.createElement("div");
+newSquare.className = "square";
+newSquare.innerHTML = ++squareCount;
+newSquare.addEventListener("click", function() { printNumber(newSquare.innerHTML);})
+let htmlSquareContainer = document.getElementById("squareContainer");
+htmlSquareContainer.appendChild(newSquare);
+}
+</script>
+</head>
+<body>
+<div id="squareContainer"> </div>
+<script>
+for (let i =0; i < 3; i++)
+addsquare();
+</script>
+<div id="output" onclick="printNumber('')"> </div>
+<button onclick="addsquare()"> Add square </button>
+</body>
+</html>

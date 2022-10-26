@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+    height: 100%;
+    background-color: rgb(37, 33, 92);
+}
+body {
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*navbar*/
+#navbar {
+    width: 100%;
+    background-color: black;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+}
+#navbar a:first-child {
+    margin-left: 50px;
+    border-left: 1px solid white;
+}
+
+#navbar a {
+    font-size: 25px;
+    text-decoration: none;
+    color: white;
+    line-height: 100px;
+    border-right: 1px solid white;
+    padding: 20px;
+}
+#navbar a:hover {
+    color: rgb(243, 124, 55);
+}
+
+/*Scroll indicator progress bar*/
+#progress-container {
+    width: 100%;
+    height: 8px;
+    background-color: white;
+}
+#progress-bar {
+    height: 8px;
+    width: 0%;
+    background-color: rgb(243, 124, 55);
+}
+
+/*main content area*/
+#main {
+    width: 80%;
+    margin: 50px auto;
+    background-color: rgb(89, 86, 134);
+    padding: 50px;
+    z-index: -1;
+}
+
+h1 {
+    color: white;
+    font-size: 72px;
+    text-align: center;
+}
+
+p {
+    color: white;
+    font-size: 28px;
+}
+    </style>
+    <script>
+        window.onscroll = function(){scrollFunction()};
+
+        function scrollFunction(){
+        var windowScroll = document.body.scrollTop || document.documentElement.scrollTop;
+
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+ 
+        var scrolled = (windowScroll / height) * 100;
+        document.getElementById("progress-bar").style.width = scrolled + "%";
+        }
+    </script>
+
+</head>
+<body>
+    <div id="navbar">
+        <a href="#">Home</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+      </div>
+
+      <div id="main">
+        <h1>Header</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloribus dolore itaque alias neque nam doloremque est ipsa nemo id perspiciatis numquam consequuntur et, tempora exercitationem fuga. Quia, ut dolorem. 
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime, animi. Necessitatibus voluptate quidem recusandae rerum, delectus laboriosam explicabo ut aliquid modi ea dolorem totam, eveniet eum labore aspernatur mollitia obcaecati.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi eveniet accusamus tempore dignissimos quae, voluptate, minima labore beatae laborum placeat libero deleniti necessitatibus explicabo quibusdam magnam nulla consequuntur eius nihil!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil accusamus incidunt, blanditiis ad atque ullam repudiandae provident vero dolore distinctio aliquam libero, cumque repellendus, aliquid fuga sunt aperiam mollitia delectus.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus blanditiis ipsum odit eaque atque consequuntur facere deserunt! Repellat odit sit est facere excepturi assumenda, molestias veniam tenetur? Dicta, itaque odit!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam earum voluptatum optio ipsa aut sequi consequuntur vero! Esse ullam natus blanditiis? Soluta nam dignissimos a voluptatibus quam, ducimus sed blanditiis.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque facilis ipsam nesciunt pariatur odio consequatur magni. Dolorum obcaecati officia, quas possimus necessitatibus at, ipsam voluptatem pariatur impedit vitae minus totam.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, vel a? Nesciunt esse, repellat ut rerum nisi reiciendis dolores sint voluptatibus repellendus iure ipsam error quos deserunt a veniam alias.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio nostrum tenetur autem placeat provident perferendis aut inventore, doloribus, vitae labore eius modi, nulla optio exercitationem fugiat assumenda voluptates earum ratione!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora at fuga facere vitae ducimus voluptatem perferendis sequi magnam modi sunt id quasi et quo exercitationem, soluta rem excepturi corrupti maiores.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga est doloribus impedit quidem distinctio, dignissimos necessitatibus ipsa delectus accusamus quasi veritatis voluptas placeat velit nemo quo eligendi quam deleniti quisquam?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem illo, dolore magni ratione in aperiam odit mollitia aliquid optio hic delectus eligendi, consequatur doloribus possimus, veniam suscipit culpa dignissimos magnam!
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloribus dolore itaque alias neque nam doloremque est ipsa nemo id perspiciatis numquam consequuntur et, tempora exercitationem fuga. Quia, ut dolorem. 
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime, animi. Necessitatibus voluptate quidem recusandae rerum, delectus laboriosam explicabo ut aliquid modi ea dolorem totam, eveniet eum labore aspernatur mollitia obcaecati.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi eveniet accusamus tempore dignissimos quae, voluptate, minima labore beatae laborum placeat libero deleniti necessitatibus explicabo quibusdam magnam nulla consequuntur eius nihil!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil accusamus incidunt, blanditiis ad atque ullam repudiandae provident vero dolore distinctio aliquam libero, cumque repellendus, aliquid fuga sunt aperiam mollitia delectus.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus blanditiis ipsum odit eaque atque consequuntur facere deserunt! Repellat odit sit est facere excepturi assumenda, molestias veniam tenetur? Dicta, itaque odit!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam earum voluptatum optio ipsa aut sequi consequuntur vero! Esse ullam natus blanditiis? Soluta nam dignissimos a voluptatibus quam, ducimus sed blanditiis.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque facilis ipsam nesciunt pariatur odio consequatur magni. Dolorum obcaecati officia, quas possimus necessitatibus at, ipsam voluptatem pariatur impedit vitae minus totam.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, vel a? Nesciunt esse, repellat ut rerum nisi reiciendis dolores sint voluptatibus repellendus iure ipsam error quos deserunt a veniam alias.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio nostrum tenetur autem placeat provident perferendis aut inventore, doloribus, vitae labore eius modi, nulla optio exercitationem fugiat assumenda voluptates earum ratione!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora at fuga facere vitae ducimus voluptatem perferendis sequi magnam modi sunt id quasi et quo exercitationem, soluta rem excepturi corrupti maiores.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga est doloribus impedit quidem distinctio, dignissimos necessitatibus ipsa delectus accusamus quasi veritatis voluptas placeat velit nemo quo eligendi quam deleniti quisquam?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem illo, dolore magni ratione in aperiam odit mollitia aliquid optio hic delectus eligendi, consequatur doloribus possimus, veniam suscipit culpa dignissimos magnam!
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloribus dolore itaque alias neque nam doloremque est ipsa nemo id perspiciatis numquam consequuntur et, tempora exercitationem fuga. Quia, ut dolorem. 
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime, animi. Necessitatibus voluptate quidem recusandae rerum, delectus laboriosam explicabo ut aliquid modi ea dolorem totam, eveniet eum labore aspernatur mollitia obcaecati.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi eveniet accusamus tempore dignissimos quae, voluptate, minima labore beatae laborum placeat libero deleniti necessitatibus explicabo quibusdam magnam nulla consequuntur eius nihil!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil accusamus incidunt, blanditiis ad atque ullam repudiandae provident vero dolore distinctio aliquam libero, cumque repellendus, aliquid fuga sunt aperiam mollitia delectus.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus blanditiis ipsum odit eaque atque consequuntur facere deserunt! Repellat odit sit est facere excepturi assumenda, molestias veniam tenetur? Dicta, itaque odit!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam earum voluptatum optio ipsa aut sequi consequuntur vero! Esse ullam natus blanditiis? Soluta nam dignissimos a voluptatibus quam, ducimus sed blanditiis.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque facilis ipsam nesciunt pariatur odio consequatur magni. Dolorum obcaecati officia, quas possimus necessitatibus at, ipsam voluptatem pariatur impedit vitae minus totam.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, vel a? Nesciunt esse, repellat ut rerum nisi reiciendis dolores sint voluptatibus repellendus iure ipsam error quos deserunt a veniam alias.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio nostrum tenetur autem placeat provident perferendis aut inventore, doloribus, vitae labore eius modi, nulla optio exercitationem fugiat assumenda voluptates earum ratione!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora at fuga facere vitae ducimus voluptatem perferendis sequi magnam modi sunt id quasi et quo exercitationem, soluta rem excepturi corrupti maiores.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga est doloribus impedit quidem distinctio, dignissimos necessitatibus ipsa delectus accusamus quasi veritatis voluptas placeat velit nemo quo eligendi quam deleniti quisquam?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem illo, dolore magni ratione in aperiam odit mollitia aliquid optio hic delectus eligendi, consequatur doloribus possimus, veniam suscipit culpa dignissimos magnam!
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloribus dolore itaque alias neque nam doloremque est ipsa nemo id perspiciatis numquam consequuntur et, tempora exercitationem fuga. Quia, ut dolorem. 
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime, animi. Necessitatibus voluptate quidem recusandae rerum, delectus laboriosam explicabo ut aliquid modi ea dolorem totam, eveniet eum labore aspernatur mollitia obcaecati.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi eveniet accusamus tempore dignissimos quae, voluptate, minima labore beatae laborum placeat libero deleniti necessitatibus explicabo quibusdam magnam nulla consequuntur eius nihil!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil accusamus incidunt, blanditiis ad atque ullam repudiandae provident vero dolore distinctio aliquam libero, cumque repellendus, aliquid fuga sunt aperiam mollitia delectus.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus blanditiis ipsum odit eaque atque consequuntur facere deserunt! Repellat odit sit est facere excepturi assumenda, molestias veniam tenetur? Dicta, itaque odit!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam earum voluptatum optio ipsa aut sequi consequuntur vero! Esse ullam natus blanditiis? Soluta nam dignissimos a voluptatibus quam, ducimus sed blanditiis.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque facilis ipsam nesciunt pariatur odio consequatur magni. Dolorum obcaecati officia, quas possimus necessitatibus at, ipsam voluptatem pariatur impedit vitae minus totam.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, vel a? Nesciunt esse, repellat ut rerum nisi reiciendis dolores sint voluptatibus repellendus iure ipsam error quos deserunt a veniam alias.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio nostrum tenetur autem placeat provident perferendis aut inventore, doloribus, vitae labore eius modi, nulla optio exercitationem fugiat assumenda voluptates earum ratione!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora at fuga facere vitae ducimus voluptatem perferendis sequi magnam modi sunt id quasi et quo exercitationem, soluta rem excepturi corrupti maiores.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga est doloribus impedit quidem distinctio, dignissimos necessitatibus ipsa delectus accusamus quasi veritatis voluptas placeat velit nemo quo eligendi quam deleniti quisquam?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem illo, dolore magni ratione in aperiam odit mollitia aliquid optio hic delectus eligendi, consequatur doloribus possimus, veniam suscipit culpa dignissimos magnam!
+        </p>
+      </div>
+</body>
+</html>

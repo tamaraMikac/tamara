@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midterm 2</title>
+    <script>
+ function isPrime(number){
+    for(let k = 2; k < number; k++){
+        if(number % k == 0)
+        return false;
+    }
+    return true;
+ }
+     function nzm(){
+        let max = document.getElementById("max").value;
+        let primes = document.getElementById("prime");
+
+        while(primes.length > 0)
+        primes.remove(0);
+
+        for(let i = 2; i < max; i++){
+            if(isPrime(i)){
+                let option = document.createElement("option");
+                option.text = i;
+                primes.appendChild(option);
+            }
+        }
+     }
+    </script>
+</head>
+<body>
+    <label for="max">Maximum number:</label>
+    <input type="number" id="max" value="10" onchange="nzm()">
+
+    <label>Prime numbers:</label>
+    <select id="prime">
+        <option>2</option>
+        <option>3</option>
+        <option>5</option>
+        <option>7</option>
+    </select>
+</body>
+</html>

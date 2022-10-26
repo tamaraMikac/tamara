@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2> Tamara Mikač </h2>
+<p> Adding HTML elements through JavaScript. </p>
+<div id ="t"> 
+<p id="p1"> First paragraph </p>
+<p id = "p2"> Second paragraph </p>
+ </div>
+
+<script>
+const paragraph = document.createElement("p");
+const para = document.createTextNode("this is new node");
+paragraph.appendChild(para);
+const element = document.getElementById("t");
+element.appendChild(paragraph);
+</script>
+<button onclick="myFunction()"> Remove element </button>
+<script>
+function myFunction() {
+document.getElementById("p1").remove();
+}
+</script>
+<script>
+const parent = document.getElementById("t");
+const child = document.getElementById("p2");
+parent.removeChild(child);
+</script>
+</body>
+</html>

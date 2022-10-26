@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+<html>
+<body>
+<div onmouseover = "mOver(this)" onmouseout="mOut(this)" style="background-color:red; width:100px; height:50px; padding:40px;">	Mouse Over me </div>
+<script>
+function mOver(obj) {
+obj.innerHTML = "Thank you" 
+}
+
+function mOut(obj) {
+obj.innerHTML="Mouse Over me"
+}
+</script>
+<br>
+<div onmousedown="down(this)" onmouseup="up(this)" style="background-color:red; width:100px; height:50px; padding:40px;"> Click me </div>
+<script>
+function down(obj) {
+obj.style.backgroundColor = "blue";
+obj.innerHTML = "AHAHAH";
+}
+function up(obj) {
+obj.style.backgroundColor="green";
+obj.innerHTML="thank you";
+}
+</script>
+<br>
+<button id="z"> Try it! </button>
+<p id="t"> </p>
+<script>
+document.getElementById("z").addEventListener("click", datee);
+function datee(){
+document.getElementById("t").innerHTML = Date();
+}
+</script>
+<br>
+<button id="r"> Try it</button>
+<p id="u"> </p>
+<script>
+var x = document.getElementById("r");
+x.addEventListener("mouseover", myFunction);
+x.addEventListener("click", myD);
+x.addEventListener("mouseout", myT);
+
+function myFunction() {
+document.getElementById("u").innerHTML += "Mouse over<br>";
+}
+function myD(){
+document.getElementById("u").innerHTML += " Clicked! <br>";
+}
+function myT() {
+document.getElementById("u").innerHTML += "Mouse out! <br>";
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+h1 {
+	font-family:'Fredoka One', cursive;
+	text-align: center; 
+	color: #f5f5dc;
+	font-size: 70px;
+	margin: -15px; 
+	box-shadow: rgba(0, 0, 0, 0.1) 7px 7px 7px;
+	background-color:#001830;
+	width: 85%;
+	margin-left: 75px;
+	border-radius: 15px;
+	border: 5px solid #2aa2bd;
+	
+	
+}
+
+body {
+	background-image: url("p.gif");
+	background-color: #f5f5dc;
+	
+}
+
+div.l {
+	background-color: #72a0cf;
+	margin: auto;
+	text-align: center;
+	border: 5px outset #022d59;
+	width: 60%;
+	padding-bottom: 4%;
+	
+}
+
+img.s {
+	padding-bottom: 0px;
+	border: 4px solid #002E5C;
+	box-shadow: rgba(0, 0, 0, 0.3) 4px 4px 4px;
+	border-radius: 8px;
+	margin: auto;
+	width: 180px;
+	height:240px; 
+}
+
+div.t {
+	background-color: #002E5C;
+	text-align: left;
+	border: 5px solid #022d59;
+	width: 50%;
+	height: 20px;
+	margin: -20px;
+	color: white;
+	font-family: 'Fredoka One', cursive;
+}
+
+.button1 {
+	font-family: 'Fredoka One', cursive;
+	border:none;
+	width:20%;
+	color:white;
+	background-color: #336491;
+    border: 2px solid black;
+    border-radius: 15px;
+	height:25px;
+	box-shadow: rgba(0, 0, 0, 0.3) 3px 3px 3px;
+}
+.button1:hover {
+  background-color: #008CBA;
+  color: white;
+}
+.button1:active{
+	color:red;
+}

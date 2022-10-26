@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Form validation</title>
+        <style>
+            :root{
+                --success-color: #23cc71;
+                --error-color: #e74c3c;
+            }
+            body{
+                box-sizing: border-box;
+                background-color: whitesmoke;
+                font-family: sans-serif;
+                justify-content: center;
+                margin: auto;
+            }
+
+            .container{
+                background-color:rgb(238, 238, 238);
+                border-radius: 5px;
+                width: 400px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+            }
+
+            h2{
+                text-align: center;
+                padding: 20px;
+            }
+
+            .form{
+                padding: 20px 40px;
+            }
+
+            .formcontrol label{
+                display: block;
+                color: grey;
+                margin-bottom: 5px;
+            }
+
+            .formcontrol input{
+                display: block;
+                border-radius: 5px;
+                font-size: 15px;
+                padding: 10px;
+                width:100% ;
+                border: 2px solid #f0f0f0;
+            }
+            .formcontrol input:focus{
+                background-color: #777;
+                outline: 0;
+            }
+            .formcontrol.success input { 
+                border-color: var(--success-color);
+            }
+
+            .formcontrol.error input { 
+                border-color: var(--error-color);
+            }
+
+            .formcontrol small {
+                color: var(--error-color);
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                visibility: hidden;
+            }
+
+            .formcontrol.error small{
+                visibility: visible;
+            }
+
+            .form button{
+                cursor: pointer;
+                background-color: #3498db;
+                border: 2px solid #3498db;
+                border-radius: 4px;
+                color: white;
+                display: block;
+                font-size: 16px;
+                padding: 10px;
+                margin-top: 20px;
+                width: 100%;
+            }
+        </style>
+        <script>
+            const form = document.getElementById("form");
+            const username = document.getElementById("username");
+            const email = document.getElementById("email");
+            const password = document.getElementById("psw");
+            const password2 = document.getElementById("psw2");
+
+            function isValid(email){
+                
+            }
+
+            function showError(input, message){
+                const formControl = input.parentElement;
+                formControl.className = "formcontrol error";
+                const small = formControl.querySelector("small");
+                small.innerText = message;
+
+            }
+
+            function showSuccess(input){
+                formControl = input.parentElement;
+                formControl.className = "formcontrol success";
+            }
+
+            form.addEventListener('submit', function(e) {
+              e.preventDefault();
+
+              if(username.value == ""){
+                showError(username, "Username is required");
+
+              }else{
+                showSuccess(username);
+              }
+
+              if(email.value == ""){
+                showError(email, "Username is required");
+
+              }else{
+                showSuccess(email);
+              }
+
+              if(password.value == ""){
+                showError(password, "Username is required");
+
+              }else{
+                showSuccess(password);
+              }
+
+              if(password2.value == ""){
+                showError(password2, "Username is required");
+
+              }else{
+                showSuccess(password2);
+              }
+            });
+        </script>
+
+    </head>
+    <body>
+        <div class="container">
+            <form id="form" class="form">
+                <h2> Registration</h2>
+                <div class="formcontrol">
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Enter username" name="username">
+                <small> Error message</small>
+            </div>
+
+            <div class="formcontrol">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Enter email" name="email">
+                <small> Error message</small>
+             </div>
+
+             <div class="formcontrol">
+                <label for="psw">Password:</label>
+                <input type="password" placeholder="Enter password" id="psw" name="psw">
+                <small>Error message</small>
+             </div>
+
+             <div class="formcontrol">
+                <label for="psw2">Confirm password</label>
+                <input type="password" id="psw2" placeholder="Enter password again" name="psw2">
+                <small>Error message</small>
+             </div>
+             <button type="submit">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>

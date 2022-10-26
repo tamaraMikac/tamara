@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div onmousedown="down(this)" onmouseup ="up(this)" style="background-color:#D94A38;width:90px;height:20px;padding:40px;">
+            Click Me></div>
+        <script>
+            function up(obj){
+                obj.style.backgroundColor = "red";
+                obj.innerHTML ="Tamara";
+            }
+            function down(obj){
+                obj.style.backgroundColor = "pink";
+                obj.innerHTML = "Mikač"
+            }
+
+        </script>
+    </body>
+</html>

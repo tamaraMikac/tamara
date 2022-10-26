@@ -1,0 +1,54 @@
+h1 { 
+font-family:'Fredoka One', cursive;
+}
+
+
+
+.container {
+	font-size: 60px;
+	text-transform:lowercase;
+	display: flex;
+	align-items:center;
+	justify-content: center;
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+    width: 400px;
+	
+}
+
+body{
+	background-color: #002E5C;
+}
+a:link, a:visited {
+  background-color:grey;
+  color: black;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid black;
+
+}
+
+.class {
+  font-family: 'Sniglet', cursive;
+  color: orange;
+  margin: 10px;
+}
+#game-wrapper {
+  width: 760px;
+  margin: auto;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: 2px solid orange;
+}
+.game {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

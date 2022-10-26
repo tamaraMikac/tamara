@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<script>
+   const title=  document.getElementById("main-heading");
+    document.innerHTML = title;
+
+    const listItems = document.getElementsByClassName("list-items");
+    document.innerHTML = listItems;
+
+    const container = document.querySelector("div");
+</script>
+<style>
+    body{
+        background-color: darkblue;
+        margin: auto;
+        color: aliceblue;
+    }
+    div {
+        border: 2px solid white;
+        width: 300px;
+        height: 200px;
+    }
+</style>
+    </head>
+    <body>
+        <div class ="container">
+            <h1 id="main-heading" style="text-align: center;"> Favourite Movies</h1>
+            <ul>
+                <li class ="list-items">The Matrix </li>
+                <li class ="list-items">Star Wars </li>
+                <li class ="list-items">Harry Potter </li>
+                <li class ="list-items">Lord of the rings</li>
+                <li class ="list-items">Marvel</li>
+            </ul>
+        </div>
+    </body>
+</html>

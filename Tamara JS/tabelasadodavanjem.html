@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Naloga 3</title>
+        <style>
+            table {
+                border-collapse: collapse;
+            }
+            td {
+                width: 40px;
+                height: 40px;
+                border: 1px solid black;
+                text-align: center;
+            }
+        </style>
+        <script>
+            function buildTable(width,height){
+                let n = 1;
+                let table = document.getElementById("numbers");
+                for(let i = 0; i < height; i++){
+                    let row = table.insertRow(-1);
+                for(let j = 0; j < width; j++){
+                    let cell = row.insertCell(-1);
+                    cell.innerHTML = n;
+                    n++;
+                }
+                }
+            }
+
+            function clearTable(){
+                let table = document.getElementById("table");
+
+                while(table.rows.length > 0)
+                table.deleteRow(0);
+            }
+
+            function refreshTable(){
+                clearTable();
+                let width = document.getElementById("width").value;
+                let height = document.getElementById("height").value;
+                buildTable(width,height);
+            }
+        </script>
+
+        </head>
+<body onload="buildTable(11, 10)">
+    <table id="numbers"></table>
+    <p>
+        width:
+        <input type="number" size="5" value="10" id="width">
+        height:
+        <input type="number" size="5" value="10" id="height">
+        <button onclick="refreshTable()">Refresh</button>
+    </p>
+</body>
+</html>

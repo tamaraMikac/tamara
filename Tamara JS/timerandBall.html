@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer and Ball</title>
+    <style>
+        #number{
+            font-size: 100px;
+            text-align: center;
+            color: darkblue;
+            width: 300px;
+            height: 120px;
+        }
+        #number:hover{
+            color: red;
+        }
+
+        #ball{
+            position: relative;
+         width:20px;
+         height: 20px;
+         border-radius: 100%;
+         background-color: blue;
+        }
+
+        button{
+            background-color: lightskyblue;
+            width: 100px;
+            display: inline-block;
+            height: 30px;
+            border-radius: 5px;
+        }
+        #playground{
+            margin: 30px 0;
+            border: 2px solid red;
+            background-color: yellow;
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+<script>
+    let counter = 0;
+    let timerInterval =  undefined;
+
+    function increaseTimer(){
+        counter++;
+        document.getElementById("number").innerHTML = counter;
+    }
+
+    function startTimer(){
+        if(timerInterval === undefined){
+            timerInterval = setInterval(increaseTimer,1000);
+
+        }
+    }
+
+    function stopTimer(){
+        clearInterval(timerInterval);
+        timerInterval = undefined;
+    }
+
+    function resetTimer(){
+        if(timerInterval !== undefined){
+        stopTimer();
+        startTimer();
+    }
+    counter= 0;
+    document.getElementById("number").innerHTML = counter;
+    }
+
+    let x = 50;
+    let y = 50;
+    let vx = 200;
+    let vy = 100;
+    let dt = 1/50;
+
+    function moveBall(){
+        x += vx * dt;
+        y += vy * dt;
+
+        if(y >= 180) vy *= -1;
+        if(x >= 280) vx *= -1;
+        if(y <= 0) vy *= -1;
+        if(x <= 0) vx *= -1;
+
+        let ball = document.getElementById("ball");
+        ball.style.left = x + "px";
+        ball.style.top = y + "px";
+    }
+    function youWin() {
+        window.alert("You got it!");
+      }
+
+    window.setInterval(moveBall, 1000 *dt);
+</script>
+
+</head>
+<body>
+    <div id="number">0</div>
+    <button onclick="startTimer()">Start</button>
+    <button onclick="resetTimer()">Reset</button>
+    <button onclick="stopTimer()">Stop</button>
+
+    <div id="playground">
+        <div id="ball" onclick="youWin()"></div>
+    </div>
+</body>
+</html>

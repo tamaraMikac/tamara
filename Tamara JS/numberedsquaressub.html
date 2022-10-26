@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .square{
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        margin: 1px;
+        text-align: center;
+        background-color: blueviolet;
+        border: 2px solid black;
+        font-size: 30px;
+    }
+
+    .square:hover{
+        background-color: darkmagenta;
+    }
+
+    #output{
+        border: 1px solid black;
+        text-align: center;
+        width: 120px;
+        height: 30px;
+        font-size: 20px;
+        margin: 2px;
+    }
+</style>
+
+<script>
+    let counter = 100;
+
+    function printNumber(){
+        let out = document.getElementById("output");
+        let numb = 100;
+        out.innerHTML = numb--;
+       
+    }
+
+    function addSquare(){
+        let newSquare = document.createElement("div");
+        newSquare.className = "square";
+        newSquare.innerHTML = counter--;
+        newSquare.addEventListener("click", function(){ printNumber(addSquare.innerHTML)})
+
+        let container = document.getElementById("container");
+        container.appendChild(newSquare);
+    }
+</script>
+<body>
+
+    <div id="container"></div>
+    <script>
+        for(let i = 5; i > 0; i--)
+        addSquare();
+    </script>
+    
+    <div id="output" onclick="printNumber()"></div>
+    <button type="button" onclick="addSquare()">Add square</button>
+</body>
+</html>

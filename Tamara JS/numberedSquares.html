@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numberes squares</title>
+    <style>
+        .square{
+        display: inline-block;
+        background-color: yellow;
+        border: 1px solid black;
+        text-align: center;
+        font-size: 25px;
+        width: 40px;
+        height: 40px;
+        margin: 1px;
+        }
+
+        .square:hover{
+            background-color: orangered;
+        }
+
+        #output{
+            border: 1px solid black;
+            width: 120px;
+            height: 30px;
+            text-align: center;
+            font-size: 25px;
+        }
+    </style>
+    <script>
+     let counter = 0;
+
+     function printNumber(number){
+        document.getElementById("output").innerHTML  = number;
+     }
+
+     function addSquare(){
+       let newSquare = document.createElement("div");
+       newSquare.className = "square";
+       newSquare.innerHTML = ++counter;
+       newSquare.addEventListener("click", function(){
+         printNumber(newSquare.innerHTML);
+       });
+    
+
+       let squareContainer = document.getElementById("squareContainer");
+       squareContainer.appendChild(newSquare);
+     }
+
+     function removeSquare(){
+        let squareContainer = document.getElementById("squareContainer");
+        squareContainer.removeChild(squareContainer.lastElementChild);
+     }
+    </script>
+</head>
+<body>
+    <div id="squareContainer">
+     <script>
+        for(let i = 0; i < 3; i++)
+        addSquare();
+     </script>
+    </div>
+    <div id="output"></div>
+    
+    <button onclick="addSquare()">Add square</button>
+    <button onclick="removeSquare()">Remove square</button>
+</body>
+</html>

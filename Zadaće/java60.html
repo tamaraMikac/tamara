@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #number{
+                width: 200px;
+                height: 100px;
+                font-size: 100px;
+                color:darkred ;
+                text-align: center;
+            }
+            #buttons{
+                background-color: crimson;
+                color: black;
+                width: 400px;
+                height: : 100px;
+                text-align:center;
+            }
+            button{
+                width:80px
+            }
+        </style>
+        <script>
+            let counter = 0;
+            let timerInterval = undefined;
+
+            function increaseCounter(){
+                counter++;
+                document.getElementById("number").innerHTML = counter;
+            }
+
+            function startTimer(){
+                if(timerInterval == undefined){
+                    timerInterval = window.setInterval(increaseCounter, 1000);
+                }
+            }
+
+            function stopTimer(){
+                if(timerInterval !== undefined){
+                 window.clearInterval(timerInterval);
+                 timerInterval = undefined;
+                }
+            }
+
+            function resetTimer(){
+                if(timerInterval !== undefined){
+                    startTimer();
+                    stopTimer();
+                }
+                counter = 0;
+                document.getElementById("number"). innerHTML = 0;
+
+            }
+        </script>
+    </head>
+    <body>
+        <div id="number">0</div>
+        <div id ="buttons"></div>
+
+        <button onclick="starTimer()">Start</button>
+        <button onclick="resetTimer()">Reset</button>
+        <button onclick="stopTimer()">Stop</button>
+    </body>
+</html>

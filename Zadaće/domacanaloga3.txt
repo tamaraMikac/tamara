@@ -1,0 +1,147 @@
+(* Tamara Mikač
+Računalništvo in infromatika
+89211053
+Krnc *)
+
+(* 1.naloga *)
+
+type gender = M | F ;;
+type fTree = { n : string ; s : string ; g : gender ; c : fTree array };;
+
+let matchG gender = match gender with 
+  | M -> true
+  | F -> false;;
+
+let rec helper tree man_ref woman_ref =
+                                if (matchG tree.g) = false then man_ref := !man_ref+1 else woman_ref := !woman_ref+1;
+                                for i=0 to (Array.length tree.c) -1 do
+                                    helper tree.c.(i) man_ref woman_ref
+                                done
+
+let countfm tree = 
+            let man_ref = ref 0 in
+            let woman_ref = ref 0 in
+            helper tree man_ref woman_ref;
+            !man_ref, !woman_ref;;
+
+let rec helper2 tree tree_list_ref =
+                                if (Array.length tree.c) = 0  then tree_list_ref := !tree_list_ref@[tree]  ;
+                                for i=0 to (Array.length tree.c) -1 do
+                                    helper2 tree.c.(i) tree_list_ref
+                                done
+
+let childless tree =
+        let tree_list_ref = ref [] in 
+        helper2 tree tree_list_ref;
+        !tree_list_ref;;
+
+
+let rec helper3 tree depth name_list_ref fathers_name = 
+                                let newName = ref fathers_name in
+                                if depth = 0 then name_list_ref := [tree.n^fathers_name]@(!name_list_ref);
+                                if depth = 2 then if (matchG tree.g) = false then newName := tree.s^(!newName) else newName := tree.n^(!newName);
+                                if depth = 1 then if (matchG tree.g) = false then newName := tree.s else newName := tree.n^(!newName);
+                                for i=0 to (Array.length tree.c) -1 do
+                                    helper3 tree.c.(i) (depth-1) name_list_ref !newName
+                                done
+
+let childrenAtDetph depth tree =
+            let name_list_ref = ref [] in
+            helper3 tree depth name_list_ref "";
+            !name_list_ref;;
+
+(* 2.naloga *)
+
+let getSecoondIntupple (a,b) = b
+
+module Graph = 
+struct
+  type node = int
+  type graph = ( node * node list ) list
+  let order (graf:graph) = List.length graf
+  
+  let degree (graf:graph) (n:node) =  List.length (getSecoondIntupple (List.nth graf (n-1)))
+  let max_degree (graf:graph) = let highest = ref 0 in
+                       for i=0 to ((List.length graf)-1) do
+                            let length = List.length (getSecoondIntupple (List.nth graf i)) in
+                            if length > !highest then highest := length
+                       done; 
+                       !highest
+  let min_degree (graf:graph) = let lowest = ref 1000000 in
+                       for i=0 to ((List.length graf)-1) do
+                            let length = List.length (getSecoondIntupple (List.nth graf i)) in
+                            if length < !lowest then lowest := length
+                       done; 
+                       !lowest
+ let matrix_of_graph (graf:graph) = 
+                let matrix = Array.make_matrix (List.length graf) (List.length graf) 0 in
+                for i=0 to ((List.length graf)-1) do
+                    let nodeInGraf = List.nth graf i in
+                    let connectionOfNode = (getSecoondIntupple nodeInGraf) in
+                    for j=0 to ((List.length connectionOfNode)-1) do
+                        matrix.(i).((List.nth connectionOfNode j)-1) <- 1;
+                    done;
+                done;
+                matrix
+ let add_edge (graf:graph) (node1, node2) = (List.map( fun (x,y) -> if x=node1 then x,y@[node2] else if x=node2 then x,y@[node1] else x,y) graf:graph) 
+                                    
+ let delete_last (graf:graph) = 
+         let last = List.length graf in
+         let withoutLast = List.filter ( fun (x,y) -> x != last) graf  in
+         let removeConnections = List.map ( fun (x,y) ->  x, (List.filter( fun (k) -> k != last ) y)) withoutLast in
+         (removeConnections:graph)
+ let add (graf:graph) connections = let newNodeNumber = List.length graf+1 in
+                            let addedNode = ref graf in
+                            for i=0 to ((List.length connections)-1) do
+                                addedNode := add_edge !addedNode (newNodeNumber, List.nth connections i)
+                            done;
+                            ([newNodeNumber, connections]@(!addedNode):graph)
+end;; 
+
+
+
+let claw:Graph.graph = [1,[2;3;4];2,[1];3,[1];4,[1]];;
+
+Graph.order claw;;
+
+Graph.degree claw 1;;
+Graph.max_degree claw ;;
+Graph.min_degree claw;;
+Graph.matrix_of_graph claw;;
+Graph.add_edge claw (3, 4);;
+Graph.delete_last claw;;
+Graph.add claw [2;3;4];;
+
+(* 3.naloga *)
+
+class oseba ime priimek id= 
+    object(self)
+        val mutable ime = (ime: string)
+        val mutable priimek = (priimek: string)
+        val mutable id = (id: int)
+        method predstavi = "" 
+    end;;
+    
+class ucitelj ime priimek id placa = 
+    object(self)
+        inherit oseba ime priimek id as oseba
+        val placa = (placa: int)
+        method predstavi = oseba#predstavi ^ "Ucitelju je ime " ^ ime ^ " " ^ priimek ^ " " ^ "in ima ID " ^ (string_of_int id) ^ " in placo" ^ (string_of_int placa)
+    end;;
+    
+class student ime priimek id mentor = 
+    object(self)
+        inherit oseba ime priimek id as oseba
+        val mentor = (mentor: string)
+        method predstavi = oseba#predstavi ^ "Studentu je ime " ^ ime ^ " " ^ priimek ^ " " ^ "in ima ID " ^ (string_of_int id) ^ " in mentorja " ^ mentor
+    end;;
+    
+class asistent ime1 priimek1 id1 placa mentor = 
+    object(self)
+        inherit student ime1 priimek1 id1 mentor as student
+        inherit ucitelj ime1 priimek1 id1 placa as ucitelj
+        method predstavi = student#predstavi ^ " in placo " ^ (string_of_int placa)
+    end;;
+    
+let asistent1 = new asistent "Tamara" "Mikac" 1 12 "Matjaza";;
+asistent1#predstavi;; 

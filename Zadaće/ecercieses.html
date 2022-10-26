@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            height: 290px;
+            width: 320px;
+            box-sizing: border-box;
+
+        }
+        fieldset{
+            border: 2px solid grey;
+        }
+    </style>
+    <script>
+        function multiply(){
+            let num1 = document.getElementById("firstNumber").value;
+            let num2 = document.getElementById("secondNumber").value;
+            let result = document.getElementById("result");
+            result.innerHTML = num1 * num2;
+        }
+
+        function divide(){
+            let num1 = document.getElementById("firstNumber").value;
+            let num2 = document.getElementById("secondNumber").value;
+            document.getElementById("result").innerHTML = num1 / num2;
+
+        }
+
+        function maxNumber() {
+            let num1 = document.getElementById("firstNumber").value;
+            let num2 = document.getElementById("secondNumber").value;
+            let out = document.getElementById("demo");
+
+            if(num1 > num2){
+                document.getElementById("demo").innerHTML  = `${num1}`;
+            } else if(num1 == num2){
+                document.getElementById("demo").innerHTML=`${num1} and ${num2} are equal`;
+            }else{
+                document.getElementById("demo").innerHTML = `${num2}`;
+            }
+
+        }
+        
+
+    
+    </script>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <label>1st Number: </label>
+            <input type="text" id="firstNumber">
+
+            <label>2nd Number:</label>
+            <input type="text" id="secondNumber" oninput="maxNumber()">
+
+            <button type="button" onclick="multiply()">Multiply</button>
+            <button type="button" onclick="divide()">Divide</button>
+            <br>
+            <br>
+        
+           <label>The result is:</label>
+           <div id="result"></div>
+           <br>
+           <label>Max Number:</label>
+           <br>
+           <div id="demo"></div>
+           
+        </fieldset>
+    </form>
+    <br><br><br><br>
+
+    <select id="colorSelect"> 
+        <option>Red</option> 
+        <option>Green</option> 
+        <option>White</option> 
+        <option>Black</option> 
+        </select> 
+        <input type="button" onclick="removecolor()" value="Select and Remove">
+
+        <script>
+            function removecolor(){
+               var  x = document.getElementById("colorSelect");
+                x.remove(x.selectedIndex);
+            }
+        </script>
+</body>
+</html>

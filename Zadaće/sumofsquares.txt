@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+width: 50px;
+height: 50px;
+font-size: 24px;
+}
+
+.bit {
+border: 1px solid black;
+background-color: yellow;
+}
+
+.bit:hover {
+background-color: orange;
+}
+
+.empty {
+background-color: white;
+}
+</style>
+<script>
+let sum = 0;
+
+function switchNumber(number) {
+let cell = document.getElementById("cell" + number);
+if(cell.innerHTML == "") {
+cell.innerHTML = number;
+sum += number;
+} else {
+cell.innerHTML = "";
+sum -= number;
+}
+let sumCell = document.getElementById("sum");
+sumCell.innerHTML = sum;
+}
+</script>
+</head>
+<body>
+<table>
+<tr>
+<td class="bit" id="cell128" onclick="switchNumber(128)"></td>
+<td class="bit" id="cell64" onclick="switchNumber(64)"></td>
+<td class="bit" id="cell32" onclick="switchNumber(32)"></td>
+<td class="bit" id="cell16" onclick="switchNumber(16)"></td>
+<td class="bit" id="cell8" onclick="switchNumber(8)"></td>
+<td class="bit" id="cell4" onclick="switchNumber(4)"></td>
+<td class="bit" id="cell2" onclick="switchNumber(2)"></td>
+<td class="bit" id="cell1" onclick="switchNumber(1)"></td>
+<td class="empty">=</td>
+<td class="empty" id="sum">0</td>
+</tr>
+</table>
+</body>
+</html>
+
+
+
+
+
+

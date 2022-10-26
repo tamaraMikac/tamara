@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Timer </title>
+    <style>
+      #num {
+        width: 300px;
+        font-size: 100px;
+        text-align: center;
+        color: red;
+      }
+      #buttoncontainer {
+        width: 300px;
+        text-align: center;
+      }
+      button {
+        width: 80px;
+        height: 50px;
+        color: white;
+        background-color: black;
+        font-size: 20px;
+        border-radius: 10px;
+      }
+	  .numbers{
+		border:1px solid black;
+		width:100px;
+		margin:auto;
+		text-align:center;
+		margin-left:100px;
+		margin-top:30px;
+	  }
+	  .hey{
+		width:100px;
+		background-color: white;
+		color:black;
+		border:2px dotted black;
+		height:20px;
+		margin-left:100px;
+		text-align:center;
+	  }
+    </style>
+    <script>
+        let counter = 0;
+        let timerInterval = undefined;
+        let divAppend = undefined;
+
+        function increaseTimer(){
+            counter++;
+            document.getElementById("num").innerHTML = counter;
+        }
+
+        function startTimer(){
+            if(timerInterval === undefined){
+                timerInterval = setInterval(increaseTimer,1000);
+                divAppend = setInterval(appendDiv,1000);
+            }
+              }
+
+              function appendDiv(){
+                let div = document.createElement("div");
+                div.className = "hey";
+                div.innerHTML = counter;
+
+                if(counter % 2 == 0){
+                    div.style.background = "orange";
+				    div.style.color = "white";
+                }
+                document.getElementById("numdisp").appendChild(div);
+              }
+
+              function stopTimer(){
+                if(timerInterval !== undefined){
+                    clearInterval(timerInterval);
+                }
+                if(divAppend !== undefined){
+                    clearInterval(divAppend);
+                }
+                timerInterval = undefined;
+                divAppend = undefined;
+              }
+
+              function resetTimer(){
+                if(timerInterval !== undefined){
+                    stopTimer();
+                    counter = 0;
+                    document.getElementById("num").innerHTML = "0";
+                    
+                    clearInterval(divAppend);
+                }
+
+                    var numd = document.getElementById("numdisp");
+                    numd.innerHTML = "";
+
+                    var div = document.createElement("div");
+                    div.className = "numbers";
+                    div.innerHTML = "Numbers";
+                    numdisp.appendChild(div);
+
+                }
+              
+
+              
+    </script>
+</head>
+  
+<body>
+
+  <div id="num">0</div>
+  <div id="buttoncontainer">
+    <button onclick="startTimer()">Start</button>
+    <button onclick="stopTimer()">Stop</button>
+    <button onclick="resetTimer()">Reset</button>
+  </div>
+
+  <div id="numdisp">
+  <div id="numbers" class="numbers">Numbers</div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table with Document write</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+
+        td{
+            width:40px;
+            height: 40px;
+            border: 1px solid white;
+            text-align: center;
+            background-color: yellow;
+        }
+        .paran:hover{
+            background-color: aqua;
+        }
+        .neparan:hover{
+            background-color: green;
+        }
+    </style>
+
+    <script>
+        let sum = 0;
+
+        function cellClicked(cell){
+    
+        if (cell.style.backgroundColor == "gray"){
+            cell.style.backgroundColor = "yellow";
+            sum -= Number.parseInt(cell.innerHTML);
+        }
+        else {
+            cell.style.backgroundColor = "gray";
+            sum += Number.parseInt(cell.innerHTML);
+        }
+    
+        let sumC = document.getElementById("sum");
+        sumC.innerHTML = `Sum: ${sum}`;
+    }
+
+    function selected(cell){
+        let select = document.getElementById("broj");
+
+        if(cell.style.backgroundColor == "gray"){
+        let option = document.createElement("option");
+        option.text = Number.parseInt(cell.innerHTML);
+        select.add(option);
+        } 
+        
+        
+    }
+
+       
+    </script>
+</head>
+<body>
+    <script>
+        document.write("<table>");
+         for(let i = 0; i < 10; i++){
+            document.write("<tr>");
+                for(let j = 0; j < 10; j++){ 
+                    let number = Math.floor(Math.random() * 100);
+                    if(number % 2 == 0)
+                    document.write(`<td class="paran" onclick="cellClicked(this);selected(this)">${number}</td>`);
+                    else
+                    document.write(`<td class="neparan" onclick="cellClicked(this);selected(this)">${number}</td>`);
+                }
+                document.write("</tr>");
+            }
+                document.write(`<tr><td colspan="10" id="sum">Sum: 0 </td></tr>`);
+         
+            document.write("<table>");
+    </script>
+
+    <select id="broj" >
+
+    </select>
+
+
+</body>
+</html>

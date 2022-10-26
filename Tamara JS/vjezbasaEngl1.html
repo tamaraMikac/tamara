@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            background-color: black;
+            color: white;
+            height: 30px;
+            width: 120px;
+            display: inline-block;
+        }
+        #displayN{
+            border: 1px solid black;
+            width: 150px;
+            height: 40px;
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+
+    <script>
+    function addNames(){
+        let name = document.getElementById("name").value;
+        let ul = document.getElementById("list");
+        let disp = document.getElementById("displayN");
+      while(ul.length > 0)
+      ul.remove(0);
+
+        if(name.length > 0){
+        let listItem = document.createElement("li");
+        listItem.innerHTML = name;
+        ul.appendChild(listItem);
+        }
+
+      disp.innerHTML = name;
+    }
+
+    function removeNames(){
+        let name = document.getElementById("name").value;
+        let ul = document.getElementById("list");
+        let disp = document.getElementById("displayN");
+        Olet listItem = document.querySelector("li");
+      
+       ul.removeChild(ul.lastElementChild);
+       disp.innerHTML = "";
+    }
+    </script>
+</head>
+<body>
+    <label>Enter Name:</label>
+    <input type="text" id="name">
+
+    <ul id="list">
+        <li>Panda</li>
+        <li>Cat</li>
+    </ul>
+
+<button id="add" onclick="addNames()">Add Names</button>
+<button onclick="removeNames()">Remove Names</button>
+<br>
+<label>Display Name:</label>
+<br>
+<div id="displayN"></div>
+
+
+</body>
+</html>

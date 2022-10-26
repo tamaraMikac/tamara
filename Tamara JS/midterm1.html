@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Progress bar</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                border: 5px solid black;
+            }
+            td {
+                width: 60px;
+                height: 50px;
+                border: none;
+            }
+        </style>
+        <script>
+       let interval = undefined;
+       let progress = 0;
+
+       function makeProgress(){
+        if(progress == 100){
+            clearInterval(interval);
+        }
+      let bar = document.getElementById(`bar_${progress}`);
+      bar.style.backgroundColor = "green";
+      progress++;
+       }
+      
+                </script>
+    </head>
+    <body>
+        <script>
+            document.write("<table>");
+                document.write("<tr>");
+                for(let i = 0; i < 100; i++){
+                    document.write(`<td style="background-color:white" id="bar_${i}"></td>`);
+ }
+ document.write("</tr>");
+ document.write("</table>");
+
+ interval = setInterval(makeProgress,30);
+        </script>
+    </body>
+</html>

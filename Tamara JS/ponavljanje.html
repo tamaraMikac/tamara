@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <style>
+    table{
+        border: 2px solid black;
+        border-radius: 5px;
+    }
+
+    td{
+        width: 20px;
+        height: 20px;
+        background-color: black;
+        border-radius: 50%;
+    }
+   </style>
+   <script>
+    function clearDots(){
+        document.getElementById("dot1").style.backgroundColor = "white";
+        document.getElementById("dot2").style.backgroundColor = "white";
+        document.getElementById("dot3").style.backgroundColor = "white";
+        document.getElementById("dot4").style.backgroundColor = "white";
+        document.getElementById("dot5").style.backgroundColor = "white";
+        document.getElementById("dot6").style.backgroundColor = "white";
+        document.getElementById("dot7").style.backgroundColor = "white";
+        document.getElementById("dot8").style.backgroundColor = "white";
+        document.getElementById("dot9").style.backgroundColor = "white";
+    }
+
+    function showNumber(number){
+        if(number == 1){
+            document.getElementById("dot5").style.backgroundColor = "black";
+        }
+        if(number == 2){
+            document.getElementById("dot3").style.backgroundColor = "black";
+            document.getElementById("dot7").style.backgroundColor = "black";
+        }
+        if(number == 3){
+            document.getElementById("dot3").style.backgroundColor = "black";
+            document.getElementById("dot5").style.backgroundColor = "black";
+            document.getElementById("dot7").style.backgroundColor = "black";
+        }
+        if(number == 4){
+            document.getElementById("dot1").style.backgroundColor = "black";
+            document.getElementById("dot3").style.backgroundColor = "black";
+            document.getElementById("dot7").style.backgroundColor = "black";
+            document.getElementById("dot9").style.backgroundColor = "black";
+        }
+        if(number == 5){
+            document.getElementById("dot1").style.backgroundColor = "black";
+            document.getElementById("dot3").style.backgroundColor = "black";
+            document.getElementById("dot5").style.backgroundColor = "black";
+            document.getElementById("dot7").style.backgroundColor = "black";
+            document.getElementById("dot9").style.backgroundColor = "black";
+        }
+        if(number == 6){
+            document.getElementById("dot1").style.backgroundColor = "black";
+            document.getElementById("dot2").style.backgroundColor = "black";
+            document.getElementById("dot3").style.backgroundColor = "black";
+            document.getElementById("dot7").style.backgroundColor = "black";
+            document.getElementById("dot8").style.backgroundColor = "black";
+            document.getElementById("dot9").style.backgroundColor = "black";
+        }
+    }
+
+    function randomNum(){
+        let num = Math.floor(Math.random() * 7);
+        if(num == 1){
+            document.getElementById("dot5").style.backgroundColor = "black";
+        }
+        if(num == 2){
+            document.getElementById("dot3").style.backgroundColor = "black";
+            document.getElementById("dot7").style.backgroundColor = "black";
+        }
+        if(num == 3){
+            document.getElementById("dot3").style.backgroundColor = "black";
+            document.getElementById("dot5").style.backgroundColor = "black";
+            document.getElementById("dot7").style.backgroundColor = "black";
+        }
+        if(num == 4){
+            document.getElementById("dot1").style.backgroundColor = "black";
+            document.getElementById("dot3").style.backgroundColor = "black";
+            document.getElementById("dot7").style.backgroundColor = "black";
+            document.getElementById("dot9").style.backgroundColor = "black";
+        }
+        if(num == 5){
+            document.getElementById("dot1").style.backgroundColor = "black";
+            document.getElementById("dot3").style.backgroundColor = "black";
+            document.getElementById("dot5").style.backgroundColor = "black";
+            document.getElementById("dot7").style.backgroundColor = "black";
+            document.getElementById("dot9").style.backgroundColor = "black";
+        }
+        if(num == 6){
+            document.getElementById("dot1").style.backgroundColor = "black";
+            document.getElementById("dot2").style.backgroundColor = "black";
+            document.getElementById("dot3").style.backgroundColor = "black";
+            document.getElementById("dot7").style.backgroundColor = "black";
+            document.getElementById("dot8").style.backgroundColor = "black";
+            document.getElementById("dot9").style.backgroundColor = "black";
+        }
+        num = setInterval(clearDots, 500);
+    
+    }
+     let counter = 0;
+    function rollDice(){
+        var intervalT = setInterval(function(){
+
+            if(counter == 3){
+        clearInterval(intervalT);
+        document.getElementById("tabla").innerHTML = "";
+        document.querySelector("TD").style.backgroundColor = "white";
+        clearDots();
+            }
+            counter++;
+            setInterval(randomNum, 100);
+            setInterval(clearDots, 150);
+         },1000);
+       
+    }
+   </script>
+   </head>
+   <body>
+       <table onclick="randomNum()" id="tabla">
+           <tr><td id="dot1" ></td><td id="dot2"></td><td id="dot3"></td></tr>
+           <tr><td id="dot4"></td><td id="dot5"></td><td id="dot6"></td></tr>
+           <tr><td id="dot7"></td><td id="dot8"></td><td id="dot9"></td></tr>
+       </table>
+       <br>
+       <button type="button" onclick="clearDots()">Clear Dots</button>
+       <button type="button" onclick="showNumber(3)">Show Dots</button>
+       <button type="button" onclick="rollDice()">Roll dice</button>
+   </body>
+   </html>

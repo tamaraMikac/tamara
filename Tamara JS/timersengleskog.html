@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Timer </title>
+    <style>
+      #numberdisplay {
+        width: 300px;
+        font-size: 100px;
+        text-align: center;
+        color: red;
+      }
+      #buttoncontainer {
+        width: 300px;
+        text-align: center;
+      }
+      button {
+        width: 80px;
+        height: 50px;
+        color: white;
+        background-color: black;
+        font-size: 20px;
+        border-radius: 10px;
+      }
+      
+	  .numbers{
+		border:1px solid black;
+		width:100px;
+		margin:auto;
+		text-align:center;
+		margin-left:100px;
+		margin-top:30px;
+	  }
+	  .hey{
+		width:100px;
+		background-color: white;
+		color:black;
+		border:2px dotted black;
+		height:20px;
+		margin-left:100px;
+		text-align:center;
+	  }
+
+	  
+    </style>
+  </head>
+  
+  <body>
+
+    <div id="numberdisplay">0</div>
+    <div id="buttoncontainer">
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
+      <button id="reset">Reset</button>
+    </div>
+
+	<div id="numdisp">
+    <div id="numbers" class="numbers">Numbers</div>
+	</div>
+<script>
+	let timerInterval = undefined;
+	let appendd = undefined;
+	let counter = 0;
+
+	function increaseTimer(){
+		counter++;
+		document.getElementById("numberdisplay").innerHTML = counter;
+	}
+
+	function startTimer(){
+		if(timerInterval === undefined){
+			timerInterval = setInterval(increaseTimer, 1000);
+			appendd = setInterval(() => {
+				appendDiv();
+			}, 1000);
+		}
+	}
+
+	function appendDiv(){
+		var div = document.createElement("div");
+		div.className = "hey";
+		div.innerHTML = counter;
+
+		if(counter % 2 == 0){
+			div.style.backgroundColor = "orange";
+			div.style.color = "white";
+		}
+
+		document.getElementById("numdisp").appendChild(div);
+	}
+
+	function stopTimer(){
+		if(timerInterval !== undefined){
+			clearInterval(timerInterval);
+			clearInterval(appendd);
+			appendd = undefined;
+			timerInterval = undefined;
+		}
+	}
+
+    function resetTimer(){
+		if(timerInterval !== undefined){
+			stopTimer();
+			clearInterval(appendd);
+			counter = 0;
+			document.getElementById("numberdisplay").innerHTML = "0";
+		   resetMe();
+		}
+	}
+
+
+	function resetMe(){
+		var del = document.getElementById("numdisp");
+		del.innerHTML = "";
+
+		var numdiv = document.createElement("div");
+		numdiv.className = "numbers";
+		numdiv.innerHTML = "Numbers";
+		document.getElementById("numdisp").appendChild(numdiv);
+	}
+	var start = document.getElementById("start");
+	var stop1 = document.getElementById("stop");
+	var reset = document.getElementById("reset");
+
+	start.addEventListener("click", function(){
+		startTimer();
+	});
+
+	stop1.addEventListener("click", function(){
+		stopTimer();
+	});
+
+	reset.addEventListener("click", function(){
+		resetTimer();
+	})
+</script>
+</body>
+</html>

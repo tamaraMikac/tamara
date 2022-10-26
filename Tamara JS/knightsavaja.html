@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Knight game</title>
+        <style>
+            .playground {
+                border-collapse: collapse;
+              
+            }
+            
+            .cell {
+                display: inline-block;
+                width: 64px;
+                height: 64px;
+                border: none;
+                padding: 0;
+                background-color: limegreen;
+            }
+        </style>
+        <script>
+            let width = 10;
+            let height = 10;
+            let walls = 30;
+            let apples = 1;
+            let bomb = 10;
+            let knightx = undefined;
+            let knighty = undefined;
+            let tiles = undefined;
+
+            function get_random_empty_tile() {
+                let x = 0, y = 0;
+                do {
+                    x = Math.floor(width * Math.random());
+                    y = Math.floor(width * Math.random());
+                } while (tiles[y][x] !== "");
+                return {col:x, row:y};
+            }
+
+            function init() {
+                tiles = Array(height);
+                for (let row = 0; row < height; row++) {
+                    tiles[row] = Array(width);
+                    for (let col = 0; col < width; col++) {
+                        tiles[row][col] = "";
+                    }
+                }
+
+                for (let i = 0; i < walls; i++) {
+                    let tile = get_random_empty_tile();
+                    let x = tile["col"];
+                    let y = tile["row"];
+                    tiles[y][x] = "wall";
+                }
+
+                for (let i = 0; i < apples; i++) {
+                    let tile = get_random_empty_tile();
+                    let x = tile["col"];
+                    let y = tile["row"];
+                    tiles[y][x] = "apple";
+                }
+                for (let i = 0; i < bomb; i++) {
+                    let tile = get_random_empty_tile();
+                    let x = tile["col"];
+                    let y = tile["row"];
+                    tiles[y][x] = "bomb";
+                }
+
+                let tile = get_random_empty_tile();
+                knightx = tile["col"];
+                knighty = tile["row"];
+            }
+
+            function draw_tiles() {
+                for (let row = 0; row < height; row++) {
+                    for (let col = 0; col < width; col++) {
+                        let cell = document.getElementById(`cell_${row}_${col}`);
+                        switch (tiles[row][col]) {
+                            case "wall":
+                                cell.innerHTML = `<img src="wall.png">`;
+                                break;
+                            case "apple":
+                                cell.innerHTML = `<img src="apple-grass.png">`;
+                                break;
+                            default:
+                                cell.innerHTML = `<img src="grass.png">`;
+                                break;
+                                case "bomb":
+                                cell.innerHTML = `<img src="bomb-grass.png">`;
+                                break;
+                        }
+                    }
+                }
+
+                document.getElementById(`cell_${knighty}_${knightx}`).innerHTML = `<img src="knight-grass.png">`;
+            }
+
+            function user_input(event) {
+                let tox = knightx;
+                let toy = knighty;
+
+                switch (event.key) {
+                    case "ArrowUp":
+                        if (knighty > 0)
+                            toy--;
+                        break;
+                    case "ArrowDown":
+                        if (knighty < height - 1)
+                            toy++;
+                        break;
+                    case "ArrowLeft":
+                        if (knightx > 0)
+                            tox--;
+                        break;
+                    case "ArrowRight":
+                        if (knightx < width - 1)
+                            tox++;
+                        break;
+                    default:
+                        break;
+                }
+
+                if (knightx == tox && knighty == toy)
+                    return;
+                
+                if (tiles[toy][tox] === "wall")
+                    return;
+                
+                if (tiles[toy][tox] === "apple")
+                    tiles[toy][tox] = "";
+                    var r = Math.floor(Math.random() * 1)+1;
+                apples = r * "apple";
+
+                    if (tiles[toy][tox] === "bomb")
+                  document.write("Game over!");
+                    
+
+                document.getElementById(`cell_${knighty}_${knightx}`).innerHTML = `<img src="grass.png">`;
+                document.getElementById(`cell_${toy}_${tox}`).innerHTML = `<img src="knight-grass.png">`;
+
+                knightx = tox;
+                knighty = toy;
+            }
+        </script>
+           <script>
+            function start() {
+                var timeleft = 10;
+                var downloadTimer = setInterval(function(){
+            if(timeleft == 0){
+             clearInterval(downloadTimer);
+             timeleft = 0;
+             document.getElementById("timer").innerHTML = "0";
+              document.write("Game over!");
+             
+             }
+  timeleft--;
+  document.getElementById("timer").innerHTML = timeleft;
+}, 1000);
+            }
+
+        
+            
+        
+        </script>
+    </head>
+    <body onload="start()">
+        <div style="color: red; font-size:25px;text-align: center; font-family: sans-serif;"id="timer"onload="start()" onplay="start()">0</div>
+        <br>
+        <script>
+            document.write(`<table class="playground">`);
+            for (let row = 0; row < height; row++) {
+                document.write(`<tr>`);
+                for (let col = 0; col < width; col++) {
+                    document.write(`<td class="cell" id="cell_${row}_${col}"></td>`);
+                }
+                document.write(`</tr>`);
+            }
+            document.write(`</table>`);
+
+
+
+            init();
+            draw_tiles();
+
+            document.addEventListener("keydown", user_input);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+    <style>
+       label {
+                display: inline-block;
+                width: 160px;
+            }
+            input {
+                width: 200px;
+            }
+            input[type="button"] {
+                width: 100px;
+            }
+            input:invalid {
+                background-color: lightcoral;
+            }
+            select {
+                width: 200px;
+            }
+            form{
+                width: 400px;
+            }
+    </style>
+    <script>
+        let ime = document.getElementById("name");
+        let email = document.getElementById("email");
+        let tel = document.getElementById("tel");
+        function potrdiObrazec(){
+        if(ime.value.trim().split(" ").length < 2){
+            ime.style.backgroundColor = "blue";
+            return;
+        }else{
+            ime.style.backgroundColor = "";
+            ime.style.border = "1px solid green";
+        }
+
+        if(email.value.trim().split("@")[1] != "student.upr.si"){
+            email.style.backgroundColor = "blue";
+            return;
+        }else{
+            email.style.backgroundColor = "";
+            email.style.border = "1px solid green";
+        }
+
+        if(tel.value.trim().split(" ").join("").length < 9){
+            tel.style.backgroundColor = "blue";
+        }else{
+            tel.style.backgroundColor = "";
+            tel.style.border = "1px solid green";
+        }
+        let obrazec = document.getElementById("forma");
+        obrazec.submit();
+    }
+
+    function dodajIzbire(){
+        let level = document.getElementById("level");
+        let program = document.getElementById("program");
+        let year = document.getElementById("year");
+  
+        while (program.length > 0)
+    program.remove(0);
+
+    while(year.length > 0)
+    year.remove(0);
+    
+        if(level.value == "Dodiplomski študij"){
+            var option = document.createElement("option");
+            option.text = "Računalništvo in informatika";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text = "Matematika";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text = "Varstvena biologija";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text = "Sredozemno kmetijstvo";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text = "Biopsihologija";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text = "Bioinformatika";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text = "Matematika v ekonomiji in financah";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text = "1 letnik";
+            year.add(option);
+            var option = document.createElement("option");
+            option.text = "2 letnik";
+            year.add(option);
+            var option = document.createElement("option");
+            option.text = "3 letnik";
+            year.add(option);
+            var option = document.createElement("option");
+            option.text = "Absolvent";
+            year.add(option);
+            var option = document.createElement("option");
+            option.text = "Pavzer";
+            year.add(option);
+            
+        }
+        if(level.value == "Magistrski študij"){
+            var option = document.createElement("option");
+            option.text = "Računalništvo in informatika";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text = "Matematične znanosti";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text = "Biopsihologija";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text = "Varstvo narave";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text = "Matematika s finančnim inženiringom";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text = "Podatkovna znanost";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text = "Psihologija";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text = "Trajnostno grajeno okolje";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text = "1 letnik";
+            year.add(option);
+            var option = document.createElement("option");
+            option.text = "2 letnik";
+            year.add(option);
+            var option = document.createElement("option");
+            option.text = "Pavzer";
+            year.add(option);
+    }
+    
+    if(level.value == "Doktorski študij"){
+            var option = document.createElement("option");
+            option.text = "Matematične znanosti";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text = "Računalništvo in informatka";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text = "Suicidologija in duševno zdravje";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text = "Obnovljivi materiali za zdrava grajena okolja";
+            program.add(option);
+            var option = document.createElement("option");
+            option.text = "1 letnik";
+            year.add(option);
+            var option = document.createElement("option");
+            option.text = "2 letnik";
+            year.add(option);
+            var option = document.createElement("option");
+            option.text = "3 letnik";
+            year.add(option);
+            var option = document.createElement("option");
+            option.text = "Pavzer";
+            year.add(option);
+            
+    }
+}
+function clearAll(){
+    document.getElementById("name").value = "";
+    document.getElementById("date").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("tel").value = "";
+    document.getElementById("level").value = "";
+    document.getElementById("program").value = "";
+}
+    </script>
+
+</head>
+<body>
+    <form id="forma" action="knight1.html" >
+        <fieldset>
+            <label for="name">Ime študenta: </label>
+            <input type="text"placeholder="Ime in priimek" id="name">
+
+            <label for="date">Datum rojstva:</label>
+            <input type="date" id="date">
+
+            <label for="tel">Tel. št.:</label>
+            <input type="tel" id="tel" placeholder="000-000-000">
+
+            <label for="email">Elektronska pošta:</label>
+            <input type="text" id="email" placeholder="vpisna@student.upr.si">
+        </fieldset>
+
+        <fieldset>
+            <label for="level" >Stopnja študija:</label>
+            <select id="level"  onchange="dodajIzbire()">
+                <option></option>
+                <option>Dodiplomski študij</option>
+                <option>Magistrski študij</option>
+                <option>Doktorski študij</option>
+            </select>
+            <label for="year">Letnik:</label>
+            <select id="year">
+            </select>
+            <label>Študijski program:</label>
+            <select id="program">           
+                 </select>
+        </fieldset>
+    </form>
+    <button type="button" id="submit" onclick="potrdiObrazec()">Potrdi</button>
+    <button id="clear" onclick="clearAll()">Počisti</button>
+  
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .circle {
+                width: 50px;
+                height: 50px;
+                background-color: aqua;
+                border: 1px solid black;
+                border-radius: 100px;
+                text-align: center;
+                font-size: 25px;
+                margin: 2px;
+                display: inline-block;
+            }
+
+            .circle1 {
+                width: 50px;
+                height: 50px;
+                background-color: aqua;
+                border: 1px solid black;
+                border-radius: 100px;
+                text-align: center;
+                font-size: 25px;
+                margin: 2px;
+                display: inline-block;
+            }
+            .circle1:hover{
+                background-color: blue;
+            }
+            .circle2 {
+                width: 50px;
+                height: 50px;
+                background-color: aqua;
+                border: 1px solid black;
+                border-radius: 100px;
+                text-align: center;
+                font-size: 25px;
+                margin: 2px;
+                display: inline-block;
+            }
+            .circle2:hover{
+                background-color: lawngreen;
+            }
+            #output{
+                width:150px;
+                height: 30px;
+                font-size: 20px;
+                text-align: center;
+                border: 1px solid black;
+            }
+        </style>
+        <script>
+            let counter=0;
+            
+            function printNumber(number){
+                let x = document.getElementById("output");
+                x.innerHTML = number;
+            }
+
+            function addSquare(){
+                let newSquare = document.createElement("div");
+                newSquare.className="circle";
+                newSquare.innerHTML = ++counter;
+                newSquare.addEventListener("click", function() {printNumber(newSquare.innerHTML);})
+                if(counter%2==0){
+                    newSquare.className = "circle1";
+                }else{
+                    newSquare.className = "circle2";
+                }
+
+                let squareContainer =document.getElementById("container");
+                squareContainer.appendChild(newSquare);
+            }
+
+            function removeSquare(){
+                let removeSquare = document.getElementById("container");
+                removeSquare.removeChild(removeSquare.lastChild);
+
+                let out = document.getElementById("output");
+                out.innerHTML = number;
+            }
+
+            function printOut(number){
+                let outt = document.getElementById("output");
+                outt.innerHTML = number;
+            }
+
+        </script>
+    </head>
+    <body>
+        <div id="container"></div>
+        <br>
+        <script>
+            for(let i=0; i<4; i++){
+                addSquare();
+            }
+        </script>
+        <div id="output" onclick="printNumber('')"></div>
+       
+        <br>
+    
+        <button type="button" onclick="addSquare()" style="background-color:green; border:1px solid black; width:100px; height:30px;">Add circle</button>
+    <button onclick ="removeSquare()">Remove circle</button>
+    </body>
+</html>

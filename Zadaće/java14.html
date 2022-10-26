@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id ="demo"> </p>
+<script>
+function myFunction(string) {
+string = string.split(" ");
+for(var i = 0, x = string.length; i < x; i++) {
+string[i] = string[i][0].toUpperCase() + string[i].substring(1);
+}
+return string.join(" ");
+}
+document.getElementById("demo").innerHTML = myFunction("tamara voli ljubu najvise na svijetu");
+</script>
+</body>
+</html>

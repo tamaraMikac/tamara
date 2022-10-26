@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+    height: 100%;
+}
+
+body {
+    /*background-color: #333232;*/
+    background-color: #848484;
+    background: linear-gradient(223.88deg, #848484 8.89%, #000000 94.31%) no-repeat;
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+
+
+
+#container {
+    height: 200px;
+    width: 500px;
+    border: 10px solid #30BCED;
+    margin: auto;
+    margin-top: 50px;
+    background-color: #F4F7BE;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+#number {
+    height: 25px;
+    width: 250px;
+    margin: auto;
+    margin-top: 50px;
+    border: 1px solid black;
+    text-align: center;
+    background-color: white;
+}
+
+
+#increment {
+    height: 25px;
+    width: 100px;
+    margin-top: 50px;
+    margin-left: 125px;
+}
+
+#decrement {
+    height: 25px;
+    width: 100px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+    </style>
+</head>
+<body>
+    <h1>Counter</h1>
+    <div id="container">
+        <div id="number">0</div>
+    <button id="increment">+</button><button id="decrement">-</button>
+</div>
+<script>
+    let counter = 0;
+    let buttonadd = document.getElementById("increment");
+    let buttonsub = document.getElementById("decrement");
+
+    buttonadd.addEventListener("click", function(){
+    counter++;
+    document.getElementById("number").innerHTML = counter;
+
+    });
+
+    buttonsub.addEventListener("click", function(){
+        counter--;
+        document.getElementById("number").innerHTML = counter;
+    });
+
+</script>
+</body>
+</html>

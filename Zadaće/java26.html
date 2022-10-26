@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo"></p>
+<script>
+function myFunction(string) {
+var str = string.toLowerCase().replace(/[^a-zA-Z0-9]+/g,'');
+var counter = 0;
+if(str === ""){
+document.getElementById("demo").innerHTML = "Nothing found";
+return false;
+}
+if((str.length) % 2 === 0) {
+counter = (str.length) / 2;
+}else{
+if(str.length === 1) {
+document.getElementById("demo").innerHTML = "Palindrome";
+return true;
+}else{
+counter = (str.length - 1) / 2;
+}
+}
+for(var x = 0; x < counter; x++) {
+if(str[x] != str.slice(-1-x)[0]){
+document.getElementById("demo").innerHTML = "Not a palindrome";
+return false;
+}
+} 
+document.getElementById("demo").innerHTML = "Palindrome";
+return true;
+}
+document.getElementById("demo").innerHTML = myFunction("121");
+
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo"> </p>
+<script>
+function myFunction(num) {
+ for (var i = num + 1;; i++) {
+        var isPrime = true;
+        for (var d = 2; d * d <= i; d++) {
+            if (i % d === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
+            return i;
+        }
+    }
+}
+
+document.getElementById("demo").innerHTML = myFunction(3);
+</script>
+</body>
+</html>

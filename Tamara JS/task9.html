@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        form{
+            width: 400px;
+            height: 180px;
+            margin: auto;
+
+        }
+
+        input{
+            width: 120px;
+            box-sizing: border-box;
+            height: 30px;
+            border: 2px solid black;
+            margin: 1px;
+            align-items: center;
+            margin-left: 50px;
+        }
+        select{
+            width: 120px;
+            box-sizing: border-box;
+            height: 30px;
+            border: 2px solid black;
+            margin: 1px;
+            margin-left: 90px;
+        }
+        ::placeholder{
+        text-align: center;
+        }
+        label{
+            font-size:15px;
+            font-family:Arial, Helvetica, sans-serif ;
+        }
+        button{
+            width: 80px;
+            height: 35px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            margin-left: 475px;
+        }
+        fieldset{
+            border: 2px solid black;
+        }
+        #address{
+            margin-left: 60px;
+        }
+        #psw{
+            margin-left: 53px;
+        }
+        #name{
+            margin-left: 21px;
+        }
+    </style>
+    <script>
+        function selected(){
+       document.getElementById("city").selectedIndex = "5";
+       }
+
+
+       function confirm(){
+        var name = document.getElementById("name");
+        if(name.value.trim().split(" ").length < 2){
+            name.style.backgroundColor = "pink";
+        }else{
+        name.style.backgroundColor = "";
+     }
+       var password = document.getElementById("psw");
+       if(isNaN(password.value) || password.value.length < 8){
+        password.style.backgroundColor = "pink";
+     }else{
+        password.style.backgroundColor ="";
+      }
+      let form = document.getElementById("forma");
+      form.submit();
+
+    }
+
+
+    function switchCity(){
+        let city = document.getElementById("city");
+        let post = document.getElementById("post");
+
+        switch(city.value){
+            case "Ljubljana":
+                post.value = "1000";
+                post.disabled = true;
+                break;
+            case "Koper":
+                post.value = "6000";
+                post.disabled = true;
+                break;
+            case "Izola":
+                post.value = "6310";
+                post.disabled = true;
+                break;
+            case "Piran":
+                post.value = "6330";
+                post.disabled = true;
+                break;
+            case "Other":
+                post.value = "";
+                post.disabled = false;
+               break;
+               default:
+                break; 
+        }
+    }
+    
+    </script>
+</head>
+<body onload="selected()">
+    <form id="forma" action="/action_page.php">
+        <fieldset>
+            <label>Student name:</label>
+            <input type="text" id="name" placeholder="Student Name"><br>
+
+            <label>Password</label>
+            <input type="psw" id="psw"><br>
+
+            <label>Address:</label>
+            <input type="text" id="address"><br>
+            
+            <label>City:</label>
+            <select id="city" onchange="switchCity()">
+                <option></option>
+                <option>Ljubljana</option>
+                <option>Koper</option>
+                <option>Izola</option>
+                <option>Piran</option>
+                <option>Other</option>
+            </select>
+<br>
+            <label>Post code:</label>
+            <input type="text" placeholder="0000" id="post" disabled>
+        </fieldset>
+    </form>
+    <br>
+    <button onclick="confirm()" id="confirm">Confirm</button>
+</body>
+</html>

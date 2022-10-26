@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+          width: 300px;
+          border-collapse: collapse;
+          border: 1px solid black;
+          margin: 3px;
+        }
+        td, th {
+          border: 1px solid black;
+          text-align: center;
+        }
+        th {
+          background: yellow;
+        }
+        button {
+          width: 94px;
+          margin: 3px;
+        }
+        </style>
+        <script>
+            var timerInterval = undefined;
+            var number = 1;
+            var running = false;
+
+            function start(){
+                var button = document.getElementById("startstop");
+                if(running){
+                    button.innerHTML = "Start";
+                    running = false;
+                    clearInterval(timerInterval);
+                }else {
+                    button.innerHTML = "Stop";
+                    running = true;
+                    setInterval(add, 1000);
+                }
+            }
+            function add(){
+                var table = document.getElementById("numbers");
+                var row = table.insertRow();
+                var cell = row.insertCell();
+                cell.innerHTML = number++;
+            }
+
+            function cleaar(){
+                var table = document.getElementById("numbers");
+                
+                while(table.rows.length > 1)
+                table.deleteRow(1);
+
+                number = 1;
+            }
+
+            function f(){
+                var table = document.getElementById("numbers");
+                 
+                while(table.rows.length > 1)
+                table.deleteRow(1);
+
+                var row = table.insertRow();
+                var cell = row.insertCell();
+                var sum = number * (number - 1) / 2;
+                cell.innerHTML = sum.toString();
+            }
+        </script>
+</head>
+<body>
+    <button id="startstop" onclick="start()">Start</button>
+    <button onclick="cleaar()">Clear</button>
+    <button onclick="f()">Fold</button>
+    <table id="numbers">
+        <tr>
+          <th>Numbers</th>
+        </tr>
+        </table>
+</body>
+</html>

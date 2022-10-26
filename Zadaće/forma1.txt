@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  float: left;
+  width: 100px;
+  height: 100px;
+  border: 1px solid white;
+  background-color: black;
+  margin: 0 auto;
+  padding: 10px;
+  
+}
+#square {
+  width: 75px;
+  height: 75px;
+  background-color: red;
+  font-size: 50px;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+}
+</style>
+<script
+
+function allowDrop

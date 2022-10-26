@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Minions</title>
+        <style>
+            .playground {
+                border-collapse: collapse;
+                padding: 20px;
+            }
+            .cell {
+                display: inline-block;
+                width: 64px;
+                height: 64px;
+                border: none;
+                padding: 0;
+                background-color: black;
+            }
+            div{
+                display: inline-block;
+                margin: auto;
+                padding: 10px;
+                height: 50px;
+                font-size: 40px;
+                color: red;
+            }
+            #life{
+                color: black;
+            }
+        </style>
+
+        <script>
+            let width = 10;
+            let height = 10;
+            let walls = 20;
+            let bananas = 8;
+            let poisons = 3;
+
+            let minionx = undefined;
+            let miniony = undefined;
+            let tiles = undefined;
+
+            function get_random_empty_tile() {
+                let x = 0, y = 0;
+                do {
+                    x = Math.floor(width * Math.random());
+                    y = Math.floor(width * Math.random());
+                } while (tiles[y][x] !== "");
+                return {col:x, row:y};
+            }
+
+            function init() {
+                tiles = Array(height);
+                for (let row = 0; row < height; row++) {
+                    tiles[row] = Array(width);
+                    for (let col = 0; col < width; col++) {
+                        tiles[row][col] = "";
+                    }
+                }
+
+                for (let i = 0; i < walls; i++) {
+                    let tile = get_random_empty_tile();
+                    let x = tile["col"];
+                    let y = tile["row"];
+                    tiles[y][x] = "wall";
+                }
+
+                for (let i = 0; i < bananas; i++) {
+                    let tile = get_random_empty_tile();
+                    let x = tile["col"];
+                    let y = tile["row"];
+                    tiles[y][x] = "banana";
+                }
+
+                for (let i = 0; i < poisons; i++) {
+                    let tile = get_random_empty_tile();
+                    let x = tile["col"];
+                    let y = tile["row"];
+                    tiles[y][x] = "poison";
+                }
+
+                let tile = get_random_empty_tile();
+                minionx = tile["col"];
+                miniony = tile["row"];
+            }
+
+            function draw_tiles() {
+                for (let row = 0; row < height; row++) {
+                    for (let col = 0; col < width; col++) {
+                        let cell = document.getElementById(`cell_${row}_${col}`);
+                        switch (tiles[row][col]) {
+                            case "wall":
+                                cell.innerHTML = `<img src="wall.png">`;
+                                break;
+                            case "banana":
+                                cell.innerHTML = `<img src="banana.png" style="width:50px;">`;
+                                break;
+                            case "poison":
+                            cell.innerHTML = `<img src="poison.png" style="width:15px;">`;
+                            break;
+                            default:
+                                cell.innerHTML = "";
+                                break;
+                        }
+                    }
+                }
+
+                document.getElementById(`cell_${miniony}_${minionx}`).innerHTML = `<img src="minion.png" style="width:80px;">`;
+            }
+
+            function user_input(event) {
+                let tox = minionx;
+                let toy = miniony;
+
+                switch (event.key) {
+                    case "ArrowUp":
+                        if (miniony > 0)
+                            toy--;
+                        break;
+                    case "ArrowDown":
+                        if (miniony < height - 1)
+                            toy++;
+                        break;
+                    case "ArrowLeft":
+                        if (minionx > 0)
+                            tox--;
+                        break;
+                    case "ArrowRight":
+                        if (minionx < width - 1)
+                            tox++;
+                        break;
+                    default:
+                        break;
+                }
+
+                if (minionx == tox && miniony == toy)
+                    return;
+                
+                if (tiles[toy][tox] === "wall")
+                    return;
+                
+                if (tiles[toy][tox] === "banana"){
+                    tiles[toy][tox] = "";
+                    bananas--;
+                    if (bananas===0) {
+                        window.alert("YOU WON!")
+                    }
+                }
+                if (tiles[toy][tox] === "poison"){
+                    poisons--;
+                    document.getElementById("count").innerHTML = poisons;
+                    if (poisons===0) {
+                    document.write(`<h1>YOU HAVE LOST!</h1>`);
+                    }
+                }
+
+                document.getElementById(`cell_${miniony}_${minionx}`).innerHTML = "";
+                document.getElementById(`cell_${toy}_${tox}`).innerHTML = `<img src="minion.png" style="width:70px;">`;
+
+                minionx = tox;
+                miniony = toy;
+            }
+        </script>
+    </head>
+    <body>
+
+        <div>
+            <lable id="life">Life Count</lable> 
+        </div>
+        <div id="count">3</div>
+
+        <script>
+            document.write(`<table class="playground">`);
+            for (let row = 0; row < height; row++) {
+                document.write(`<tr>`);
+                for (let col = 0; col < width; col++) {
+                    document.write(`<td class="cell" id="cell_${row}_${col}"></td>`);
+                }
+                document.write(`</tr>`);
+            }
+            document.write(`</table>`);
+
+            init();
+            draw_tiles();
+
+            document.addEventListener("keydown", user_input);
+        </script>
+    </body>
+</html>

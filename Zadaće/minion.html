@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<style>
+.center {
+margin: auto;
+width: 50%;
+padding: 10px;
+text-align: center;
+background-color: black;
+color: rgba(255,0,0,0.9);
+}
+
+#mybtn {
+background-color: rgba(255,0,0,0.9);
+color: white;
+padding: 16px 32px;
+text-align:center;
+}
+#mybtn:hover {
+opacity: 0.7
+}
+</style>
+<script>
+function changeValues(){
+var header = document.getElementById('mytext');
+var inputval = document.getElementById('myinput');
+if(header.innerHTML == 'HELLO PANDA') {
+document.getElementById('mybtn').style.text = "Goto Minion";
+document.getElementById('mybtn').style.background = "rgbargba(255,0,0,0.9)";
+header.innerHTML='HELLO MINION';
+header.style.color = "rgbargba(255,0,0,0.9)";
+}else{
+document.getElementById("mybtn").style.text='Goto Panda';
+document.getElementById("mybtn").style.background="rgbargba(255,0,0,0.9)";
+header.innerHTML="HELLO PANDA";
+header.style.color = "rgbargba(255,0,0,0.9)";
+}
+output(inputval.value);
+}
+function output(myVal){
+window.alert(myVal);
+}
+</script>
+</head>
+<body>
+<div class = "center">
+<h2 id="mytext"> HELLO PANDA </h2>
+<form>
+<input type="text" name="myinput" id="myinput">
+</form>
+</div>
+<div class="center">
+<button id="mybtn" onclick="changeValues()"> Goto Minion </button>
+</body>
+</html>

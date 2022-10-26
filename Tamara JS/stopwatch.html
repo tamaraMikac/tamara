@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     p{
+        display: inline;
+     }
+     #background{
+        margin: auto;
+        text-align: center;
+        background-color:rgb(171, 149, 171);
+        width: 400px;
+        height: 200px;
+        border: 2px solid black;
+        border-radius: 25px;
+     }
+     button{
+        width: 100px;
+        height: 40px;
+        background-color: blueviolet;
+        margin: 1px;
+        border-radius: 5px;
+        margin-top: 20px;
+     }
+
+     button:hover{
+        background-color: darkviolet;
+     }
+
+     body{
+        font-size: 80px;
+        color: black;
+     }
+    </style>
+</head>
+<body>
+    <div id="background">
+        <p id="s">00</p>:<p id="tens">00</p>
+        <br>
+        <button id="start" onclick="startTimer()">Start</button>
+        <button id="stop" onclick="stopTimer()">Stop</button>
+        <button id="reset" onclick="resetTimer()">Reset</button>
+    </div>
+   
+    
+
+    <script>
+        let tens = 0;
+        let seconds = 0;
+        let timeeInterval = undefined;
+        let appendseconds = document.getElementById("s");
+        let appendtens = document.getElementById("tens");
+
+        function increaseCounter(){
+            tens++;
+            if(tens < 9){
+                 appendtens.innerHTML = "0" + tens;
+            }
+
+            if(tens > 9){
+                  appendtens.innerHTML = tens;
+            }
+
+            if(tens > 99){
+                seconds++;
+ 	 	        appendseconds.innerHTML = "0" + seconds;
+
+ 	 	        tens = 0;
+ 	 	        appendtens.innerHTML = "0" + 0; 
+            }
+            
+
+            if(seconds > 9){
+                appendseconds.innerHTML = seconds;
+            }
+            
+        }
+
+        function startTimer(){
+            if(timeeInterval === undefined){
+                timeeInterval = window.setInterval(increaseCounter, 10);
+            }
+        }
+
+        function stopTimer(){
+            if(timeeInterval !== undefined){
+                window.clearInterval(timeeInterval);
+                timeeInterval = undefined;
+            }
+        }
+
+        function resetTimer(){
+            if(timeeInterval !== undefined){
+                window.clearInterval(timeeInterval);
+                tens = "00";
+                seconds = "00";
+                appendtens.innerHTML = tens;
+                appendseconds.innerHTML = seconds;
+                timeeInterval = undefined;
+            }
+        } 
+    </script>
+</body>
+</html>

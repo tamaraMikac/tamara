@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            background-color: whitesmoke;
+            width: 120px;
+            height: 40px;
+            border: 2px solid black;
+            border-radius: 5px;
+            font-family: sans-serif;
+            margin: 300px 600px;
+            color:;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" id="btn">Click me</button>
+
+    <script>
+        let button = document.getElementById("btn");
+        let colors = ["red","lime","darkblue","lightblue","gold","maroon","darked","darkorange","darkkhaki","beige","grey","blue", "green","yellow","orange", "purple", "pink","aqua","black","crimson","brown","magenta","hotpink","lightcoral","cyan","deeppink","darkslateblue"];
+        
+        button.addEventListener("click", function(){
+        var randomColors = colors[Math.floor(Math.random() * colors.length)]
+        let bod = document.querySelector("body");
+        bod.style.backgroundColor = randomColors;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo"> </p>
+<script>
+function myFunction(array) {
+var max = array[0].length;
+var ans = array[0];
+for(var i = 1; i < array.length; i++){
+var maxi = array[i].length;
+if(maxi > max) {
+ans = array[i];
+            max = maxi;
+        }
+    }
+    return ans;
+}
+document.getElementById("demo").innerHTML = myFunction(["t", "tam", "tamara"]);
+
+</script>
+</body>
+</html>

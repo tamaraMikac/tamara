@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            table{
+                border-collapse: collapse;
+            }
+            td{
+                width: 40px;
+                height: 40px;
+                background-color: yellow;
+                border: 1px solid black;
+                text-align: center;
+                
+            }
+        
+            .td:hover {
+                background-color: blueviolet;
+            }
+            .n{
+                width: 40px;
+                height: 40px;
+                background-color: yellow;
+                border: 1px solid black;
+                text-align: center;
+            }
+            .n:hover {
+                background-color:aquamarine;
+            }
+            
+        </style>
+        <script>
+            let sum = 0;
+            function cellClicked(cell){
+               if(j%2==0){
+                cell.addEventListener("onmouseover", "red");
+               }
+                if(cell.style.backgroundColor == "yellow"){
+                    cell.style.backgroundColor = "gray";
+                    sum += Number.parseInt(cell.innerHTML);
+                } else {
+                    cell.style.backgroundColor = "yellow";
+                    sum -= Number.parseInt(cell.innerHTML);
+                }
+        
+                
+                let suma = document.getElementById("sum");
+                suma.innerHTML = sum;
+            }
+
+          
+        </script>
+    </head>
+    <body>
+        <script>
+            document.write("<table>");
+                for(let i = 0; i < 10; i++){
+                    document.write("<tr>");
+                        for(let j = 1; j <= 10; j++){
+                            document.write(`<td class="td" onclick="cellClicked(this)"> ${i * 10 + j} </td>`);                           
+                   
+                        }
+                        document.write("</tr>");
+                }
+                document.write(`<tr><td colspan = "10" id="sum"> Sum: 0</td> </tr>`);
+                document.write("</table>");
+        </script>
+    </body>
+</html>

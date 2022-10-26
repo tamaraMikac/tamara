@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select even</title>
+    <script>
+        let sum = 0;
+
+        function setEven(){
+            let maximum = document.getElementById("max").value;
+            let even = document.getElementById("even");
+
+            while(even.length > 0)
+            even.remove(0);
+
+            for(let i=1; i <= maximum; i++){
+
+            
+                if(i % 2 == 0){
+                let option = document.createElement("option");
+                option.text = i;
+                even.appendChild(option);
+                }
+
+                
+            }
+           let result = document.getElementById("result");
+           while(result.length > 0)
+           result.remove(0);
+           
+            for(let k = 0; k <= maximum; k++){
+                sum += k;
+
+            }
+            result.innerHTML = sum;
+        }
+        
+
+
+                
+    </script>
+</head>
+<body>
+    <label for="max">Maximum number:</label>
+    <input type="number" value="10" id="max" onchange="setEven()">
+    <br>
+    <label for="even">Even numbers:</label>
+    <select id="even">
+      <option></option>
+    </select>
+    <br>
+    <label for="result">Sum</label>
+    <div id="result">0</div>
+</body>
+</html>

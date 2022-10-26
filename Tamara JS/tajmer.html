@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timer</title>
+
+    <style>
+        body{
+            text-align: center;
+            margin: auto;
+            
+        }
+        #numbers{
+            text-align: center;
+            color: black;
+            width: 300px;
+            height: 70px;
+            font-size: 50px;
+            font-family: sans-serif;
+            background-color: whitesmoke;
+            margin-left: 530px;
+            
+        }
+        #numbers:hover{
+            color: lime;
+        }
+        button{
+            width: 90px;
+            height: 25px;
+            background-color: lime;
+            border-radius: 4px;
+            border: 1px solid black;
+            font-size: 17px;
+            font-family: sans-serif;
+            text-align: center;
+            
+            
+        }
+    </style>
+    <script>
+        let counter = 0;
+        let timerInterval = undefined;
+
+        function increaseTimer(){
+            counter++;
+            document.getElementById("numbers").innerHTML = counter;
+            let hours = Math.floor(counter / 3600);
+            let mins = Math.floor((counter - (hours * 3600)) / 60);
+            let secs = counter % 60;
+          
+          
+
+            if(secs < 10) 
+            secs = "0" + secs;
+            if(mins < 10)
+            mins = "0" + mins;
+            if(hours < 10)
+            hours = "0" + hours;
+
+            document.getElementById("numbers").innerHTML = `${hours}:${mins}:${secs}`;
+            
+        }
+
+        function startTimer(){
+            if(timerInterval === undefined){
+              timerInterval = window.setInterval(increaseTimer, 1000);
+            }
+        }
+
+    function stop(){
+        if(timerInterval !== undefined){
+            window.clearInterval(timerInterval);
+            timerInterval = undefined;
+        }
+    }
+
+    function reset(){
+        if(timerInterval !== undefined){
+            window.clearInterval(timerInterval);
+            stop();
+            startTimer();
+        }
+        counter=0;
+        document.getElementById("numbers").innerHTML = "00:00:00";
+    }
+    </script>
+</head>
+<body>
+    <div id="numbers">00:00:00</div>
+
+    <button type="button" onclick="startTimer()"> Start </button>
+    <button type="button" onclick="reset()"> Reset </button>
+    <button type="button" onclick="stop()"> Stop </button>
+    <br>
+    <br>
+    <input id="button" type="button" onclick="stopColor()" value="Stop changing color">
+</body>
+<script>
+let intervaltimer = window.setInterval(setcolor, 500);
+    function setcolor(){
+let x = document.body;
+x.style.backgroundColor = x.style.backgroundColor == "yellow" ? "lime" : "yellow";
+    }
+
+    function stopColor(){
+        window.clearInterval(intervaltimer);
+    }
+</script>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse:collapse ;
+        }
+        td {
+            width: 40px;
+            height: 40px;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function buildTable (width, height) {
+            let table = document.getElementById("numbers");
+            let i = 1;
+            for (let row = 0; row <height; row++){
+                let row = table.insertRow(-1); // Na konec tabele.
+                for(let col = 0; col<width; col++){
+                    let cell = row.insertCell(-1);
+                    cell.innerHTML = i;
+
+                    if(isPrime(i))
+                    cell.style.backgroundColor = "red";
+
+                    i++;
+                }
+            }
+        }
+
+        function clearTable (){
+            let table = document.getElementById("numbers");
+            while (table.rows.length > 0)
+            table.deleteRow(0);
+        }
+
+        function refreshTable  () {
+            let width = document.getElementById("width").value;
+            let height = document.getElementById("height").value;
+            clearTable();
+            buildTable(width, height);
+        }
+
+        function isPrime (number) {
+            if(number == 1)
+            return false;
+            for (let k = 2; k<number;k++){
+                if (number % k == 0)
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <table id="numbers"></table>
+    <p>
+        width:
+        <input type="number" size="5" value="10" id="width">
+        height:
+        <input type="number" size="5" value="10" id="height">
+        <button onclick="refreshTable">Refresh</button>
+    </p>
+    <script>
+        buildTable(10,10);
+    </script>
+</body>
+</html>

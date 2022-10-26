@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Validacija forme</title>
+<style>
+#gumbPoslji {
+	color:blue;
+	background: orange;
+	border:white solid 1px;
+	padding: 2px 10px 2px 10px;
+}
+</style>
+</head>
+<script>
+    function confirm(){
+        var error = false;
+
+        let ime = document.getElementById("ime");
+        if(ime.value.length == 0){
+            document.getElementById("imeObvezno").innerHTML = "obvezno";
+            ime.style.backgroundColor = "red";
+            error = true;
+        }else{
+        error = false;
+        ime.style.backgroundColor = "green";
+        }
+        let priimek = document.getElementById("priimek");
+        if(priimek.value.length == 0){
+            document.getElementById("priimekObvezen").innerHTML = "obvezno";
+            priimek.style.backgroundColor = "red";
+            error = true;
+        } else {
+            priimek.style.backgroundColor = "green";
+            error = false;
+        }
+        let telefon = document.getElementById("telefon");
+        if(isNaN(telefon) && telefon.value.length != 9){
+            document.getElementById("telefonObvezen").innerHTML = "input ni validen";
+            telefon.style.backgroundColor = "red";
+            error = true;
+        } else {
+            telefon.style.backgroundColor = "green";
+            error = false;
+        }
+        let agree = document.getElementById("agree");
+        if(!agree.checked){
+           alert("Strinjati se morate s pogoji uporabe");
+           error = true;
+        }
+
+        if(!error){
+            document.getElementById("podatki").submit();
+        }
+    }
+
+    function izbiraSpola(spol)
+{
+	/* Odstrani vse izbire iz seznama 'status'. */
+	var elStatus = document.getElementById("status");
+	while (elStatus.length > 0)
+		elStatus.remove(0);
+
+	/* Definicija novih vnosov - odvisna od izbire spola. */
+	var vnosi = [];
+	if (spol == "moski")
+		vnosi = ["študent", "brezposeln", "zaposlen", "upokojen"];
+	else if (spol = "zenska")
+		vnosi = ["študentka", "brezposelna", "zaposlena", "upokojena"];
+
+	/* Prenesi vnose v HTML formo. */
+	for (var i = 0; i < vnosi.length; i++) {
+		var elVnos = document.createElement("option");
+		elVnos.text = vnosi[i];
+		elStatus.add(elVnos);
+	}
+}
+function obarvajGumb(barva){
+    var gumb = document.getElementById("gumbPoslji");
+    gumb.style.backgroundColor = barva;
+}
+
+function obarvajPoslji(barva){
+    var gumb = document.createElement("gumbPoslji");
+    gumb.style.color = barva;
+
+}
+function obarvajOkvir(barva){
+    var gumb = document.getElementById("gumbPoslji");
+    gumb.style.border = barva.concat(" ", "solid 1px");
+}
+</script>
+<body>
+
+
+<form id="podatki" action="form.html">
+<div>Ime:</div>
+<div><input type="text" name="ime" id="ime"><span id="imeObvezno"></span></div>
+
+<div>Priimek:</div>
+<div><input type="text" name="priimek" id="priimek"><span id="priimekObvezen"></span></div>
+
+<div>Telefon:</div>
+<div><input type="text" name="telefon" id="telefon"><span id="telefonObvezen"></span></div>
+
+<div>Spol:
+<input type="radio" name="spol" value="zenska" checked onclick="izbiraSpola('zenska')">ženska
+<input type="radio" name="spol" value="moski" onclick="izbiraSpola('moski')">moški
+</div>
+
+<div>
+Status:
+<select name="status" id="status">
+</select>
+</div>
+
+<script>
+izbiraSpola('zenska');
+</script>
+
+<div>
+<input type="checkbox" name="agree" value="yes" id="agree">Strinjam se s pogoji 
+</div>
+
+<p>
+<input type="button" value="Pošlji" id="gumbPoslji" onclick="confirm()"
+onmousedown="obarvajPoslji('black')"
+onmouseup="obarvajPoslji('blue')"
+onmouseover="obarvajGumb('orange'); obarvajOkvir('red')"
+onmouseout="obarvajGumb('red'); obarvajOkvir('black')">
+</p>
+</form>
+
+
+</body>
+</html>

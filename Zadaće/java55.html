@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            table{
+                text-align: center;
+            }
+            td{
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+                
+            }
+            .square{
+                background-color: yellow;
+                border: 1px solid black;
+            }
+            .square:hover{
+                background-color: coral;
+            }
+            .empty{
+                background-color: white;
+            }
+        </style>
+        <script>
+            let sum = 0;
+
+            function switchNumber(number){
+                let cell = document.getElementById("cell"+number);
+                if(cell.innerHTML == ""){
+                    cell.innerHTML = number;
+                    sum += number;
+                 }else{
+                    cell.innerHTML = "";
+                    sum -= number;
+                 }
+                 let sumc = document.getElementById("sum");
+                 sumc.innerHTML = sum;
+            }
+        </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td class="square" id="cell10" onclick="switchNumber(10)"></td>
+            <td class="square"id="cell9" onclick="switchNumber(9)"></td>
+            <td class="square"id="cell8" onclick="switchNumber(8)"></td>
+            <td class="square"id="cell7" onclick="switchNumber(7)"></td>
+            <td class="square"id="cell6" onclick="switchNumber(6)"></td>
+            <td class="square"id="cell5" onclick="switchNumber(5)"></td>
+            <td class="square"id="cell4" onclick="switchNumber(4)"></td>
+            <td class="square"id="cell3" onclick="switchNumber(3)"></td>
+            <td class="square"id="cell2" onclick="switchNumber(2)"></td>
+            <td class="square"id="cell1" onclick="switchNumber(1)"></td>
+            <td class="empty">=</td>
+            <td class="empty"id="sum">0</td>
+        </tr>
+    </table>
+</body>
+</html>

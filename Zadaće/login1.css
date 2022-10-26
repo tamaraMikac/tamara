@@ -1,0 +1,62 @@
+h1 {
+	color:whitesmoke;
+	background-color: teal;
+	font-family: Arial;
+	border-top-right-radius: 15px;
+	border-top-left-radius:15px;
+	font-size: 30px;
+	margin-top: 50px;
+	
+}
+
+body{
+	width:25%;
+	height:200px;
+	margin: auto;
+	border:none;
+	border-radius: 15px;
+	box-shadow: 4px 4px 4px 4px #5a5a5a;
+	background-color: whitesmoke;
+	margin-top:50px;
+	
+	
+}
+
+input[type=text] {
+	border:none;
+	border-bottom: 2px solid teal;
+	background-color: whitesmoke;
+	margin: 8px 0px;
+	padding:  5px 20px ;
+	width:85%;
+   margin-left: 5px;
+	display:block;
+	
+
+	
+}
+input[type=password]{
+	
+	border:none;
+	border-bottom: 2px solid teal;
+	background-color: whitesmoke;
+	width:85%;
+	margin-left: 20px;
+	margin: 8px 0px;
+	padding:  5px 20px ;
+	display:block;
+	margin-left: 5px;
+	
+}
+button {
+	background-color: teal;
+	color: whitesmoke; 
+	width: 60%;
+	margin-top:10px;
+margin-left: 80px;
+	margin-bottom:20px;
+	border-radius: 10px;
+	box-shadow;  1px 1px 1px 1px #5a5a5a;
+	height:25px;
+	
+}

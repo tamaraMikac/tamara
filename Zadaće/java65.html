@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Prime numbers</title>
+        <style>
+            label {
+                display: inline-block;
+                width: 160px;
+            }
+            input, select {
+                width: 100px;
+            }
+        </style>
+        <script>
+            function isPrime(number) {  
+                if (number < 2)
+                    return false;
+                
+                for (let k = 2; k < number; k++) {
+                    if (number % k == 0)
+                        return false;
+                }
+                return true;
+            }
+
+            function setPrimes() {
+                let maximum = document.getElementById("maximum").value;
+                let primes = document.getElementById("primes");
+
+                while (primes.length > 0)
+                    primes.remove(0);
+                
+                for (let i = 2; i < maximum; i++) {
+                    if (isPrime(i)) {
+                        let option = document.createElement("option");
+                        option.text = i;
+                        primes.add(option);
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <label>Maximum number:</label>
+            <input type="number" value="10" id="maximum" onchange="setPrimes()">
+        </div>
+        <div>
+            <label>Prime numbers:</label>
+            <select id="primes">
+                <option>2</option>
+                <option>3</option>
+                <option>5</option>
+                <option>7</option>
+            </select>
+        </div>
+    </body>
+</html>

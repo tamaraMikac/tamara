@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> zadatak1EN </title>
+<script>
+function add() {
+let ul = document.getElementById("list");
+let li = document.getElementById("li");
+let text = document.getElementById("first").value;
+li.appendChild(document.createTextNode(text));
+ul.appendChild(li);
+document.getElementById("first").value="";
+document.getElementById("d").value = text;
+}
+
+function del() {
+document.getElementById("d").value="";
+cons list = document.getElementById("list");
+list.removeChild(list.lastElementChild);
+}
+</script>
+<style>
+button {
+width:120px;
+background-color:black;
+ border-radius: 0;
+                color:white;
+                height: 50px;
+}
+</style>
+</head>
+<body>
+<form>
+<label for="name"> Enter name: </label>
+<input type="text" id="first"> <br>
+</form>
+
+<ul id="list">
+<li>Dog</li>
+<li>Cat</li>
+
+<button type="button" onclick="add()"> Add Names </button>
+<button type="button" onclick="del()"> Remove Names </button>
+
+<br>
+<br>
+<label for="fname">Dispay Name: </label><br>
+<input type="text" id="d" name="d" style="width:100px; height:50px;"> <br>
+</body>
+</html>

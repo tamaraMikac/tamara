@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Vjezba </title>
+<style>
+form {
+
+width: 300px; 
+height:300px;
+}
+fieldset {
+border: 1px solid black;
+}
+button {
+display: inline-block;
+}
+</style>
+<script>
+function MultiplyBy() {
+  num1 = document.getElementById("firstNumber").value;
+  num2 = document.getElementById("secondNumber").value;
+  document.getElementById("result").innerHTML = num1 * num2;
+}
+
+function DivideBy(){
+  num1 = document.getElementById("firstNumber").value;
+  num2 = document.getElementById("secondNumber").value;
+  document.getElementById("result").innerHTML = num1 / num2;
+}
+
+function Subtraction() {
+ num1 = document.getElementById("firstNumber").value;
+ num2 = document.getElementById("secondNumber").value;
+ document.getElementById("result").innerHTML = num1 - num2;
+}
+</script>
+</head>
+<body>
+<form>
+<fieldset>
+Number 1: <input type="text" id="firstNumber" style="background-color:pink"> <br>
+Number 2: <input type="text" id="secondNumber" style="background-color:pink"> <br>
+<br>
+<input type="button" onclick="MultiplyBy()" value="Multiply" style="background-color:pink">
+<input type="button" onclick="DivideBy()" value="Divide" style="background-color:pink">
+<input type="button" onclick="Subtraction()" value="Subtraction" style="background-color:pink">
+</fieldset>
+</form>
+<p> Result: <br>
+<div id="result"> </div>
+<p>
+</body>
+</html>

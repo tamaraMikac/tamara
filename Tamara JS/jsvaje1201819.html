@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <script>
+        function poslji(){
+        var errorcic = false; 
+        
+        var ime = document.getElementById("ime");
+        if(ime.value.length == 0){
+            document.getElementById("imeObvezno").innerHTML = "obvezno";
+            errorcic = true;
+        } else {
+            document.getElementById("imeObvezno").innerHTML = "";
+        }
+
+        var priimek = document.getElementById("priimek");
+        if(priimek.value.length == 0){
+            document.getElementById("priimekObvezen").innerHTML = "obvezno";
+            errorcic = true;
+        } else {
+            document.getElementById("priimekObvezen").innerHTML = "";
+        }
+        if(!errorcic){
+        document.getElementById("podatki").submit();
+        }
+    }
+    </script>
+</head>
+<body>
+    <form id="podatki" action="form.html">
+        <div>Ime:</div>
+        <div><input type="text" id="ime"><span id="imeObvezno"></span></div>
+        
+        <div>Priimek:</div>
+        <div><input type="text" id="priimek"><span id="priimekObvezen"></span></div>
+        
+        <div>Spol:
+        <input type="radio" checked>ženska
+        <input type="radio">moški
+        </div>
+        
+        <div>
+        Status:
+        <select name="status">
+        <option>študent</option>
+        <option>brezposeln</option>
+        <option>zaposlen</option>
+        <option>upokojen</option>
+        </select>
+        </div>
+        
+        <p>
+        <input type="button" value="Pošlji" onclick="poslji()">
+        </p>
+        </form>
+</body>
+</html>

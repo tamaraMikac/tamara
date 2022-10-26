@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  float: left;
+  width: 100px;
+  height: 100px;
+  border: 1px solid white;
+  background-color: black;
+  margin: 0 auto;
+  padding: 10px;
+  
+}
+#square {
+  width: 75px;
+  height: 75px;
+  background-color: red;
+  font-size: 50px;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+}
+</style>
+<script
+
+function allowDrop(event) {
+event.preventDefault();
+}
+function drag(event,dragdivNumber) {
+event.dataTransfer.setData("text", dragdivNumber.toString());
+}
+function drop(event, dropdivNumber) {
+  event.preventDefault();
+  var data = event.dataTransfer.getData("text");
+
+  let draggedDiv = document.getElementById("square");
+  let targetDiv = document.getElementById("div" + dropdivNumber);
+  if(dropdivNumber == 2){
+    draggedDiv.innerHTML = "2";
+    draggedDiv.style.backgroundColor = "blue";
+  }
+  else{
+    draggedDiv.innerHTML = "1";
+    draggedDiv.style.backgroundColor = "red";
+  }
+  targetDiv.appendChild(draggedDiv);
+}
+</script>
+</head>
+<body>
+
+<h2>Drag and Drop</h2>
+
+<!-- Allow the drag -->
+<!-- Where to Drop - ondragover -->
+<!-- Do the Drop - ondrop -->
+<div id="div1" ondragover="allowDrop(event)" ondrop="drop(event,1)">
+  <!-- Make an Element Draggable -->
+  <!-- What to Drag - ondragstart and setData() -->
+  <div id="square" draggable="true" ondragstart="drag(event,1)">1</div>
+</div>
+
+<div id="div2" id="div1" ondragover="allowDrop(event)" ondrop="drop(event,2)"></div>
+
+</body>
+</html>

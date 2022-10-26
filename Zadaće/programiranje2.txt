@@ -1,0 +1,29 @@
+(* Tamara Mikač
+Računalništvo in infromatika
+89211053
+Krnc *)
+
+(* 1.naloga *)
+
+let oddfirst sez = let soda,liha = List.partition(function a -> a mod 2 != 0) sez in soda@liha;;
+
+
+
+(* 3.naloga *)
+
+let summax2 sez =
+if List.length sez = 0 then 0
+else if List.length sez = 1 then List.hd sez
+else let sez2 = List.sort(fun x y -> compare y x) sez in (List.nth sez2 ((List.length sez2)-(List.length sez2)+0)) + (List.nth sez2 ((List.length sez2)-(List.length sez2)+1));;
+
+
+
+
+(* 4.naloga *)
+
+let rec subset prva druga = 
+  match druga with
+  |[]->[]
+  |_->if (List.length druga) = 0 then []
+      else if ((List.hd druga<0) || (List.hd druga>((List.length prva)-1))) then subset prva (List.tl druga)
+      else [List.nth prva (List.hd druga)]@subset prva (List.tl druga);;

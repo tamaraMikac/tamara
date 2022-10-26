@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <style>
+        .square{
+            display: inline-block;
+            background-color: crimson;
+            width: 50px;
+            height: 50px;
+            font-size: 30px;
+            border: 1px solid black;
+            margin: 1px;
+            text-align: center; 
+    }
+    
+    #output {
+        width: 130px;
+        height: 30px;
+        border: 1px solid black;
+        text-align: center;
+        font-size: 20px;
+    }
+    .square1{
+            display: inline-block;
+            background-color: crimson;
+            width: 50px;
+            height: 50px;
+            font-size: 30px;
+            border: 1px solid black;
+            margin: 1px;
+            text-align: center; 
+    }   .square2{
+            display: inline-block;
+            background-color: crimson;
+            width: 50px;
+            height: 50px;
+            font-size: 30px;
+            border: 1px solid black;
+            margin: 1px;
+            text-align: center; 
+    }
+    .square2:hover{
+        background-color: blueviolet;
+    }
+    .square1:hover{
+        background-color: yellow;
+    }
+       </style>
+       <script>
+        let counter = 0;
+
+        function printNumber(number){
+            let x = document.getElementById("output");
+            x.innerHTML = number;
+        }
+       
+
+        function addSquare(){
+            let newSquare = document.createElement("div");
+            newSquare.className ="square";
+            newSquare.innerHTML = ++counter;
+            if(counter % 2 == 0){
+               newSquare.className="square1";
+            } else {
+                newSquare.className="square2 ";
+            }
+        
+            newSquare.addEventListener("click", function() {printNumber(newSquare.innerHTML);})
+            let squareContainer = document.getElementById("container");
+            squareContainer.appendChild(newSquare);
+        }
+       </script>
+    </head>
+    <body>
+        <div id="container"></div>
+        <script>
+            for(let i = 0 ; i < 3; i++){
+                addSquare();
+            }
+        </script>
+    
+        <br>
+        <div id="output" onclick="printNumber('')"></div>
+        <button type="button" onclick="addSquare()">Add square</button>
+    </body>
+</html>

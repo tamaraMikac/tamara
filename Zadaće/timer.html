@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#number {
+color: black;
+width:300px;
+font-size:100px;
+text-align:center;
+}
+#buttons {
+width:300px;
+text-align: center;
+color:black;
+background-color:#FB48C4;
+}
+#div1{
+margin:auto;
+width: 350px;
+height:200px;
+background-color: pink;
+border:2px solid black;
+text-align: center;
+}
+button{
+background-color: white;
+border: 1px solid #FB48C4;
+width:80px;
+}
+</style>
+<script>
+let counter = 0;
+let timerInterval = undefined;
+
+function increaseCounter(){
+counter++;
+document.getElementById("number").innerHTML = counter;
+}
+
+function startTimer() {
+if(timerInterval == undefined)
+timerInterval = window.setInterval(increaseCounter,1000);
+}
+function stopTimer() {
+if(timerInterval !== undefined) {
+window.clearInterval(timerInterval);
+timerInterval = undefined;
+}
+}
+
+function resetTimer() {
+if(timerInterval !== undefined) {
+stopTimer();
+startTimer();
+}
+counter = 0;
+document.getElementById("number").innerHTML = "0";
+}
+</script>
+</head>
+<body>
+<div id="div1">
+<div id="number">0</div>
+<button onclick="startTimer()"> Start </button>
+<button onclick="resetTimer()"> Reset </button>
+<button onclick="stopTimer()"> Stop </button>
+</div>
+</body>
+</html>

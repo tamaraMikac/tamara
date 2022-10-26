@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Multiplication table</title>
+<style>
+table {
+	border-collapse: collapse;
+}
+
+td {
+	border: 1px solid black;
+	width: 30px;
+	text-align: center;
+	padding: 5px;
+}
+
+.head {
+	background-color: yellow;
+	font-weight: bold;
+}
+</style>
+<script>
+    function change(){
+        var table = document.getElementById("table");
+        let m = document.getElementById("m").value;
+        let n = document.getElementById("n").value;
+
+        while(table.rows.length > 0)
+        table.deleteRow(0);
+
+        for(var i = 0; i <= n; i++){
+            var row = table.insertRow(i);
+            for(var j = 0; j <= m; j++){
+                var cell = row.insertCell(j);
+                var valu = i * j;
+                if(valu == 0){
+                    cell.className = "head";
+                    if(i == 0 && j == 0)
+                    valu = "&times";
+                    else if (i == 0)
+                    valu = j;
+                    else
+                    valu = i;
+                    if(i == 1)
+                    valu == "0";
+                }
+                }
+
+               
+                cell.innerHTML = valu;
+            }
+        }
+    
+</script>
+</head>
+
+<body>
+<table id="table">
+<tr>
+	<td class='head'>&times;</td>
+	<td class='head'>1</td>
+</tr>
+<tr>
+	<td class='head'>1</td>
+	<td>1</td>
+</tr>
+</table>
+
+<p>
+m: <input type="number" id="m" value="5" style="width: 3em">
+n: <input type="number" id="n" value="5" style="width: 3em">
+<input type="button" value="change" onclick="change()">
+</p>
+</body>
+</html>

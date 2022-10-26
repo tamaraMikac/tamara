@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Midterm Q1</title>
+	<style type="text/css">
+		.button {
+			display: inline-block;
+			width: 100px;
+			height: 30px;
+			background-color: black;
+			color: white;
+			border: 1px solid white;
+			text-align: center;
+			margin: 1px;
+			font-size: 10px;
+		}
+
+		.output{
+			width: 150px;
+			height: 30px;
+			border: 1px solid black;
+			font-size: 20px;
+			text-align: center;
+		}
+		div{
+			padding: 10px;
+		}
+        .hey{
+		width:100px;
+		background-color: white;
+		color:black;
+		border:2px dotted black;
+		height:20px;
+		margin-left:100px;
+		text-align:center;
+	  }
+
+	</style>
+    <script>
+        let buttonPrint = document.getElementById("print");
+        let buttonRemove = document.getElementById("remove");
+       let lista = document.querySelector("ul");
+
+       while(lista.length > 0)
+       lista.remove(0);
+
+
+
+        function printNumber(){
+            let maximum = document.getElementById("max").value;
+            let div = document.createElement("li");
+		    div.className = "hey";
+            for(let i = 0; i <= maximum; i++){
+		    
+                if(i % 2 == 1){
+                    div.style.backgroundColor = "orange";
+                    div.style.color = "black";
+                    div.innerHTML = i + ": Odd";
+                    document.querySelector("ul").appendChild(div);
+                }else{
+                    div.style.backgroundColor = "white";
+                    div.style.color = "black";
+                    div.innerHTML = i + ": Even";
+                    document.querySelector("ul").appendChild(div);
+                    
+                }
+                document.querySelector("ul").appendChild(div);
+            }
+        }
+
+        function prinNum(){
+            let ul = document.querySelector("ul");
+            let m = document.getElementById("max").value;
+            for(let j = 1; j <= m; j++){
+            
+                printNumber();
+            }
+        }
+   
+       let sum = 0;
+       function output(){
+        let result = document.getElementsByClassName("output");
+
+        while(result.length > 0)
+           result.remove(0);
+
+        let num = document.getElementById("max").value;
+        for(let k = 0; k <= num; k++){
+            if(k % 2 == 1){
+                sum = sum + k;
+            }
+        }
+       result.innerText = sum;
+     
+       }
+    </script>
+
+
+</head>
+<body>
+	<div>
+		<label for="name">Enter Max No:</label>
+		<input type="text" id="max">
+		<ul> 
+		</ul>
+	</div>
+
+	<button class="button" onclick="prinNum()"id="print">Print</button>
+	<button class="button" id="remove">Remove</button>
+	
+	<div>
+		<label for="displayoddsum">Odd Sum:</label>
+		<div class="output">0</div>
+	</div>
+
+</body>
+</html>

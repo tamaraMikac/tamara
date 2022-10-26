@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css"> 
+        body {margin: 30px;} 
+        table{
+            border-collapse: collapse;
+        }
+        </style>
+        
+</head>
+<body>
+    <table id="myTable"style="border:1px solid black"> 
+    </table><form> 
+    <input type="button" onclick="createTable()" value="Create the table"> 
+    </form>
+    <script>
+        function createTable()
+{
+    let num = Math.floor(Math.random() * 100)+1;
+rn = window.prompt("Input number of rows", 1);
+cn = window.prompt("Input number of columns",1);
+  
+ for(var r=0;r<parseInt(rn,10);r++)
+  {
+   var x=document.getElementById('myTable').insertRow(r);
+   for(var c=0;c<parseInt(cn,10);c++)  
+    {
+     var y=  x.insertCell(c);
+     y.style.border = "1px solid black";
+     y.innerHTML= num;
+    }
+   
+   }
+  
+}
+    </script>
+</body>
+</html>

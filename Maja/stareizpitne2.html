@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table with Document write</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+
+        td{
+            width:40px;
+            height: 40px;
+            border: 1px solid white;
+            text-align: center;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.write("<table>");
+         for(let i = 0; i < 10; i++){
+            document.write("<tr>");
+                for(let j = 0; j < 10; j++){ 
+                    let number = Math.floor(Math.random() * 100);
+                    document.write(`<td>${number}</td>`);
+                }
+                document.write("</tr>");
+                document.write(`<tr><td colspan="10" id="sum">Sum: 0 </td></tr>`);
+         }
+            document.write("<table>");
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo"> </p>
+<script>
+function myFunction(num) {
+var sum = 0;
+while(num > 0){
+sum += num;
+num = Math.floor(num / 2);
+}
+return sum;
+}
+document.getElementById("demo").innerHTML = myFunction(8);
+</script>
+</body>
+</html>

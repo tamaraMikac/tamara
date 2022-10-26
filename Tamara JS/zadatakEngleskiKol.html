@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Midterm Q1</title>
+	<style type="text/css">
+		.button {
+			display: inline-block;
+			width: 100px;
+			height: 30px;
+			background-color: black;
+			color: white;
+			border: 1px solid white;
+			text-align: center;
+			margin: 1px;
+			font-size: 10px;
+		}
+
+		.output{
+			width: 150px;
+			height: 30px;
+			border: 1px solid black;
+			font-size: 20px;
+			text-align: center;
+		}
+		div{
+			padding: 10px;
+		}
+	</style>
+    <script>
+        
+        function print(){
+            let max = document.getElementById("max").value;
+            let ul = document.querySelector("UL");
+            if(max(isNaN))
+            alert("Enter a number");
+
+            for(let i = 0; i <= max; i++){
+                if(i % 2 == 0){
+                    var li = document.createElement("li");
+                    li.text = i +":" + " Even";
+                    li.style.backgroundColor = "pink";
+                
+                } else {
+                    li.text = i + ":" + " Odd";
+                   
+                }
+                ul.add(li);
+            }
+        }
+    </script>
+</head>
+<body>
+	<div>
+		<label for="max">Maximum number:</label>
+    <input type="number" value="0" id="max">
+		<ul> 
+		</ul>
+	</div>
+
+	<button class="button" onclick="print()">Print</button>
+	<button class="button">Remove</button>
+	
+	<div>
+		<label for="displayoddsum">Odd Sum:</label>
+		<div class="output"></div>
+	</div>
+
+</body>
+</html>

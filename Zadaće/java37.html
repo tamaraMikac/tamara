@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p> Finding HTML elements using <b> document.forms</b></p>
+
+<form id="form1">
+First name: <input type="text" name="fname"> <br>
+Last name: <input type="text" name="lname"> <br>
+<input type="submit" value="Submit">
+
+<p id="demo"></p>
+
+<script>
+const x = document.forms["form1"];
+let text = "";
+for(let i = 0; i < x.length; i++) {
+    text += x.elements[i].value + "<br>";
+}
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</form>
+</body>
+</html>

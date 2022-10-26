@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Naloga 2</title>
+        <style>
+            table {
+                border-collapse: collapse;
+            }
+            td {
+                width: 40px;
+                height: 40px;
+                border: 1px solid black;
+                text-align: center;
+            }
+        </style>
+        <script>
+            let sum = 0;
+
+            function cellClicked(cell) {
+                if (cell.style.backgroundColor == "yellow") {
+                    cell.style.backgroundColor = "gray";
+                    sum += Number.parseInt(cell.innerHTML);
+                }
+                else {
+                    cell.style.backgroundColor = "yellow";
+                    sum -= Number.parseInt(cell.innerHTML);
+                }
+                let sumc = document.getElementById("sum");
+                sumc.innerHTML = "Sum:" + sum;
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            document.write("<table>");
+            for (let row = 0; row < 10; row++) {
+                document.write("<tr>");
+                for (let col = 0; col < 10; col++) {
+                    let number = Math.floor(Math.random() * 99) + 1;
+                    document.write(`<td style="background-color:yellow" onclick="cellClicked(this)">${number}</td>`);
+                }
+                document.write("</tr>");
+            }
+            document.write(`<tr><td colspan="10" style="background-color:yellow" id="sum">Sum: 0</td></tr>`);
+            document.write("</table>");
+        </script>
+    </body>
+</html>
